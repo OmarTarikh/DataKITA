@@ -1,0 +1,65 @@
+/* Sidebar toggled state */
+.sidebar.toggled .nav-link span,
+.sidebar.toggled .sidebar-brand-text {
+  display: none !important;
+}
+
+.sidebar.toggled .nav-link {
+  justify-content: center; /* Centers icon horizontally */
+  text-align: center;
+  padding: 10px 0 !important;
+}
+
+.sidebar.toggled .nav-link iconify-icon {
+  margin: 0 auto; /* Centers icon element */
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sidebar.toggled .nav-link:hover iconify-icon {
+  color: #fff !important;
+}
+
+/* Normal sidebar link style */
+.nav-item .nav-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  padding: 10px 15px !important;
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+/* Iconify icon style */
+.nav-item .nav-link iconify-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* Text alignment beside icon */
+.nav-item .nav-link span {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hover state */
+.nav-item .nav-link:hover,
+.nav-item .nav-link:hover iconify-icon {
+  color: #fff !important;
+}
+
+/* Active state */
+.nav-item.active .nav-link,
+.nav-item.active .nav-link iconify-icon {
+  color: #fff !important;
+}
