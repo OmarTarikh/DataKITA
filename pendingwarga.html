@@ -78,9 +78,17 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePending"
+                    aria-expanded="true" aria-controls="collapsePending">
                     <iconify-icon icon="lucide:folder-sync"></iconify-icon>
                     <span>Data Pending</span></a>
+                </a>
+                <div id="collapsePending" class="collapse" aria-labelledby="headingPending" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="pendingwarga.html">Warga</a>
+                        <a class="collapse-item" href="pendingkeluarga.html">Keluarga</a>
+                    </div>
+                </div>
             </li>
 
             <hr class="sidebar-divider">
@@ -139,27 +147,6 @@
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
                         </li>
 
                     </ul>
@@ -177,11 +164,10 @@
                                 CETAK PDF
                             </a>
                         </div>
-
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                    <thead style="background-color: #4E73DF; color: #fff;">
                                         <tr>
                                             <th>ID WARGA</th>
                                             <th>NIK</th>
@@ -219,15 +205,15 @@
                                             </td>
                                             <td>DF001</td>
                                             <td>
-                                                <span class="btn btn-info" style="font-size: 10px; font-weight: 700;">UPDATE</span>
+                                                <span class="btn btn-info" style="font-size: 8px; font-weight: 700;">UPDATE</span>
                                             </td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                     <button class="btn btn-sm btn-info" title="Lihat">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-warning" title="Edit">
-                                                        <iconify-icon style="font-size: 16px;" icon="mdi:pencil"></iconify-icon>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-danger" title="Hapus">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:trash"></iconify-icon>
@@ -257,15 +243,15 @@
                                             </td>
                                             <td>DF001</td>
                                             <td>
-                                                <span class="btn btn-warning" style="font-size: 10px; font-weight: 700;">PENDING</span>
+                                                <span class="btn btn-warning" style="font-size: 8px; font-weight: 700;">PENDING</span>
                                             </td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                     <button class="btn btn-sm btn-info" title="Lihat">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-warning" title="Edit">
-                                                        <iconify-icon style="font-size: 16px;" icon="mdi:pencil"></iconify-icon>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-danger" title="Hapus">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:trash"></iconify-icon>
@@ -295,15 +281,15 @@
                                             </td>
                                             <td>DF001</td>
                                             <td>
-                                                <span class="btn btn-warning" style="font-size: 10px; font-weight: 700;">PENDING</span>
+                                                <span class="btn btn-warning" style="font-size: 8px; font-weight: 700;">PENDING</span>
                                             </td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                     <button class="btn btn-sm btn-info" title="Lihat">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-warning" title="Edit">
-                                                        <iconify-icon style="font-size: 16px;" icon="mdi:pencil"></iconify-icon>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-danger" title="Hapus">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:trash"></iconify-icon>
@@ -333,15 +319,15 @@
                                             </td>
                                             <td>DF001</td>
                                             <td>
-                                                <span class="btn btn-info" style="font-size: 10px; font-weight: 700;">UPDATE</span>
+                                                <span class="btn btn-info" style="font-size: 8px; font-weight: 700;">UPDATE</span>
                                             </td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                     <button class="btn btn-sm btn-info" title="Lihat">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-warning" title="Edit">
-                                                        <iconify-icon style="font-size: 16px;" icon="mdi:pencil"></iconify-icon>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-danger" title="Hapus">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:trash"></iconify-icon>
@@ -371,15 +357,15 @@
                                             </td>
                                             <td>DF001</td>
                                             <td>
-                                                <span class="btn btn-warning" style="font-size: 10px; font-weight: 700;">PENDING</span>
+                                                <span class="btn btn-warning" style="font-size: 8px; font-weight: 700;">PENDING</span>
                                             </td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                     <button class="btn btn-sm btn-info" title="Lihat">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-warning" title="Edit">
-                                                        <iconify-icon style="font-size: 16px;" icon="mdi:pencil"></iconify-icon>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-danger" title="Hapus">
                                                         <iconify-icon style="font-size: 16px;" icon="mdi:trash"></iconify-icon>
@@ -405,11 +391,13 @@
                                                 <a href="img/ktp_asep.jpg" style="color:#007bff; text-decoration:underline; font-weight:500;">ktp_asep.jpg</a>
                                             </td>
                                             <td>DF001</td>
-                                            <td><span class="btn btn-warning" style="font-size:10px; font-weight:700;">PENDING</span></td>
+                                            <td><span class="btn btn-warning" style="font-size:8px; font-weight:700;">PENDING</span></td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                 <button class="btn btn-sm btn-info" title="Lihat"><iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon></button>
-                                                <button class="btn btn-sm btn-warning" title="Edit"><iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                </button>
                                                 <button class="btn btn-sm btn-danger" title="Hapus"><iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon></button>
                                                 <button class="btn btn-sm btn-success" title="Verifikasi"><iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon></button>
                                                 </div>
@@ -430,11 +418,13 @@
                                                 <a href="img/ktp_siti.jpg" style="color:#007bff; text-decoration:underline; font-weight:500;">ktp_siti.jpg</a>
                                             </td>
                                             <td>DF002</td>
-                                            <td><span class="btn btn-info" style="font-size:10px; font-weight:700;">UPDATE</span></td>
+                                            <td><span class="btn btn-info" style="font-size:8px; font-weight:700;">UPDATE</span></td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                 <button class="btn btn-sm btn-info" title="Lihat"><iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon></button>
-                                                <button class="btn btn-sm btn-warning" title="Edit"><iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                </button>
                                                 <button class="btn btn-sm btn-danger" title="Hapus"><iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon></button>
                                                 <button class="btn btn-sm btn-success" title="Verifikasi"><iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon></button>
                                                 </div>
@@ -455,11 +445,13 @@
                                                 <a href="img/ktp_rudi.jpg" style="color:#007bff; text-decoration:underline; font-weight:500;">ktp_rudi.jpg</a>
                                             </td>
                                             <td>DF003</td>
-                                            <td><span class="btn btn-warning" style="font-size:10px; font-weight:700;">PENDING</span></td>
+                                            <td><span class="btn btn-warning" style="font-size:8px; font-weight:700;">PENDING</span></td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                 <button class="btn btn-sm btn-info" title="Lihat"><iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon></button>
-                                                <button class="btn btn-sm btn-warning" title="Edit"><iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                </button>
                                                 <button class="btn btn-sm btn-danger" title="Hapus"><iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon></button>
                                                 <button class="btn btn-sm btn-success" title="Verifikasi"><iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon></button>
                                                 </div>
@@ -480,11 +472,13 @@
                                                 <a href="img/ktp_lina.jpg" style="color:#007bff; text-decoration:underline; font-weight:500;">ktp_lina.jpg</a>
                                             </td>
                                             <td>DF004</td>
-                                            <td><span class="btn btn-info" style="font-size:10px; font-weight:700;">UPDATE</span></td>
+                                            <td><span class="btn btn-info" style="font-size:8px; font-weight:700;">UPDATE</span></td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                 <button class="btn btn-sm btn-info" title="Lihat"><iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon></button>
-                                                <button class="btn btn-sm btn-warning" title="Edit"><iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                </button>
                                                 <button class="btn btn-sm btn-danger" title="Hapus"><iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon></button>
                                                 <button class="btn btn-sm btn-success" title="Verifikasi"><iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon></button>
                                                 </div>
@@ -505,11 +499,13 @@
                                                 <a href="img/ktp_dedi.jpg" style="color:#007bff; text-decoration:underline; font-weight:500;">ktp_dedi.jpg</a>
                                             </td>
                                             <td>DF005</td>
-                                            <td><span class="btn btn-warning" style="font-size:10px; font-weight:700;">PENDING</span></td>
+                                            <td><span class="btn btn-warning" style="font-size:8px; font-weight:700;">PENDING</span></td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                 <button class="btn btn-sm btn-info" title="Lihat"><iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon></button>
-                                                <button class="btn btn-sm btn-warning" title="Edit"><iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                </button>
                                                 <button class="btn btn-sm btn-danger" title="Hapus"><iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon></button>
                                                 <button class="btn btn-sm btn-success" title="Verifikasi"><iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon></button>
                                                 </div>
@@ -530,23 +526,191 @@
                                                 <a href="img/ktp_nani.jpg" style="color:#007bff; text-decoration:underline; font-weight:500;">ktp_nani.jpg</a>
                                             </td>
                                             <td>DF006</td>
-                                            <td><span class="btn btn-info" style="font-size:10px; font-weight:700;">UPDATE</span></td>
+                                            <td><span class="btn btn-info" style="font-size:8px; font-weight:700;">UPDATE</span></td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                 <button class="btn btn-sm btn-info" title="Lihat"><iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon></button>
-                                                <button class="btn btn-sm btn-warning" title="Edit"><iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon></button>
+                                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                </button>
                                                 <button class="btn btn-sm btn-danger" title="Hapus"><iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon></button>
                                                 <button class="btn btn-sm btn-success" title="Verifikasi"><iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon></button>
                                                 </div>
                                             </td>
                                         </tr>
                                     </tbody>
-
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                    // Wait until DataTable renders
+                    const interval = setInterval(() => {
+                        const dtLength = document.querySelector('.dataTables_length');
+                        if (dtLength && !document.querySelector('#rtButtons')) {
+                        clearInterval(interval);
+
+                        // Create button group container
+                        const rtButtons = document.createElement('div');
+                        rtButtons.id = 'rtButtons';
+                        rtButtons.classList.add('btn-group');
+                        rtButtons.setAttribute('role', 'group');
+                        rtButtons.innerHTML = `
+                            <button type="button" class="btn active" data-rt="RT1">RT1</button>
+                            <button type="button" class="btn" data-rt="RT2">RT2</button>
+                            <button type="button" class="btn" data-rt="RT3">RT3</button>
+                            <button type="button" class="btn" data-rt="RT4">RT4</button>
+                        `;
+
+                        // Insert beside "Show entries"
+                        dtLength.appendChild(rtButtons);
+
+                        // Handle active button toggle
+                        const buttons = rtButtons.querySelectorAll('.btn');
+                        buttons.forEach(btn => {
+                            btn.addEventListener('click', () => {
+                            buttons.forEach(b => b.classList.remove('active'));
+                            btn.classList.add('active');
+                            });
+                        });
+                        }
+                    }, 200);
+                    });
+                </script>
+                <!-- Edit Data Warga Modal -->
+<div class="modal fade" id="editWargaModal" tabindex="-1" role="dialog" aria-labelledby="editWargaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" style="border-radius:18px; overflow:hidden;">
+
+            <!-- Header -->
+            <div class="modal-header d-flex justify-content-between align-items-center" style="background-color:#4E73DF; border:none;">
+                <h5 class="modal-title text-white font-weight-bold mb-0">Edit Data Warga</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
+                    <span aria-hidden="true" style="font-size:1.5rem;">&times;</span>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body bg-white" style="padding:1.5rem;">
+                <form>
+
+                    <!-- Row 1 -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">ID Warga</label>
+                            <input type="text" class="form-control rounded-pill" placeholder="ID Warga Otomatis"
+                                style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">NIK</label>
+                            <input type="text" class="form-control rounded-pill" placeholder=" NIK"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Nama</label>
+                            <input type="text" class="form-control rounded-pill" placeholder=" Nama Lengkap"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Tanggal Lahir</label>
+                            <input type="date" class="form-control rounded-pill"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Tempat Lahir</label>
+                            <input type="text" class="form-control rounded-pill" placeholder=" Tempat Lahir"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Kelamin</label>
+                            <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
+                                <option>Laki-laki</option>
+                                <option>Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Agama</label>
+                            <input type="text" class="form-control rounded-pill" placeholder=" Agama"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Pendidikan</label>
+                            <input type="text" class="form-control rounded-pill" placeholder=" Pendidikan"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                    </div>
+
+                    <!-- Row 5 -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Pekerjaan</label>
+                            <input type="text" class="form-control rounded-pill" placeholder=" Pekerjaan"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Status</label>
+                            <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
+                                <option>Menikah</option>
+                                <option>Belum Menikah</option>
+                                <option>Cerai</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Row 6 -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">KTP</label>
+                            <input type="file" class="form-control rounded-pill"
+                                style="font-size:0.9rem; padding:0.45rem 1rem;">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">ID Keluarga</label>
+                            <input type="text" class="form-control rounded-pill" placeholder=" ID Keluarga"
+                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                        </div>
+                    </div>
+
+                    <!-- Row 7 -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Status Data</label>
+                            <input type="text" class="form-control rounded-pill" placeholder="Status"
+                                style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Save Button (Below Form) -->
+                    <div class="form-row">
+                        <div class="form-group col-md-12 d-flex mt-2">
+                            <button type="submit" class="btn btn-info font-weight-bold"
+                                style="border-radius:10px; font-size:0.85rem; padding:0.45rem 1.2rem;">
+                                SIMPAN PERUBAHAN
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
                 <!-- /.container-fluid -->
 
             </div>

@@ -178,3 +178,30 @@
     max-width: none;
   }
 }
+#rtButtons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0px;
+  margin-left: 25px;
+}
+
+#rtButtons .btn {
+  font-weight: 600;
+  padding: 4px 16px;
+  font-size: 0.85rem;
+  color: #5a5c69;
+  background-color: #fff;
+  border: 1px solid #d1d3e2;
+  transition: all 0.2s ease;
+}
+
+#rtButtons .btn:hover {
+  background-color: #eaecf4;
+  border-color: #b7b9cc;
+}
+
+#rtButtons .btn.active {
+  background-color: #4E73DF;
+  color: #fff;
+  border-color: #4E73DF;
+}

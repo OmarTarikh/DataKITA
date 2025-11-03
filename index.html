@@ -78,9 +78,17 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePending"
+                    aria-expanded="true" aria-controls="collapsePending">
                     <iconify-icon icon="lucide:folder-sync"></iconify-icon>
                     <span>Data Pending</span></a>
+                </a>
+                <div id="collapsePending" class="collapse" aria-labelledby="headingPending" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="pendingwarga.html">Warga</a>
+                        <a class="collapse-item" href="pendingkeluarga.html">Keluarga</a>
+                    </div>
+                </div>
             </li>
 
             <hr class="sidebar-divider">
