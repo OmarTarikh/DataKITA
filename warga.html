@@ -286,18 +286,22 @@
                     <div class="card shadow mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h6 class="m-0 font-weight-bold text-primary">VERIFIKASI DATA WARGA</h6>
-                            <a href="#" class="btn btn-danger d-inline-flex align-items-center justify-content-center" style=" border:none; border-radius:10px; font-weight:700; font-size:13px; width:auto; height:auto;">
-                                <iconify-icon icon="mingcute:pdf-fill" style="font-size:18px; margin-right:6px; vertical-align:middle;"></iconify-icon>
-                                CETAK PDF
-                            </a>
+                                <div class="ms-auto">
+                                    <a href="#" class="btn btn-primary d-inline-flex align-items-center justify-content-center me-4" style=" border:none; border-radius:10px; font-weight:700; font-size:13px; width:auto; height:auto;">
+                                        <iconify-icon icon="ic:baseline-plus" style="font-size:18px; margin-right:6px; vertical-align:middle;"></iconify-icon>
+                                        CETAK PDF</a>
+                                        <a href="#" class="btn btn-danger d-inline-flex align-items-center justify-content-center" style=" border:none; border-radius:10px; font-weight:700; font-size:13px; width:auto; height:auto;">
+                                            <iconify-icon icon="mingcute:pdf-fill" style="font-size:18px; margin-right:6px; vertical-align:middle;"></iconify-icon>
+                                            CETAK PDF
+                                        </a>
+                                </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead style="background-color: #4E73DF; color: #fff;">
                                         <tr>
-                                            <th>ID WARGA</th>
-                                            <th>NIK</th>
+                                            <th>NIK</th>                        
                                             <th>NAMA</th>
                                             <th>TANGGAL LAHIR</th>
                                             <th>TEMPAT LAHIR</th>
@@ -305,16 +309,13 @@
                                             <th>AGAMA</th>
                                             <th>PENDIDIKAN</th>
                                             <th>PEKERJAAN</th>
-                                            <th>STATUS</th>
-                                            <th>KTP</th>
-                                            <th>ID KELUARGA</th>
-                                            <th>STATUS</th>
+                                            <th>PERNIKAHAN</th>
+                                            <th>NO KK</th>
                                             <th>OPSI</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>001</td>
                                             <td>3210998877665544</td>
                                             <td>Asep Sutisna</td>
                                             <td>1990-02-11</td>
@@ -323,20 +324,11 @@
                                             <td>Islam</td>
                                             <td>SMA</td>
                                             <td>Karyawan</td>
-                                            <td>Menikah</td>
-                                            <td>
-                                                <a href="img/ktp_asep.jpg"
-                                                style="color:#007bff; text-decoration:underline; font-weight:500;">
-                                                ktp_asep.jpg
-                                                </a>
-                                            </td>
-                                            <td>DF001</td>
-                                            <td>
-                                                <span class="btn btn-info" style="font-size: 8px; font-weight: 700;">UPDATE</span>
-                                            </td>
+                                            <td>Menikah</td>  
+                                            <td>25113210998877665544</td>                                    
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
-                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal" style="background-color: #6c757d;">
                                                       <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
@@ -345,14 +337,13 @@
                                                     <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteWargaModal">
                                                     <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
-                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    <button class="btn btn-sm btn-info" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
+                                                    <iconify-icon style="font-size:20px;" icon="mingcute:pdf-fill"></iconify-icon>
                                                     </button>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>002</td>
                                             <td>3201123456789001</td>
                                             <td>Siti Rahmawati</td>
                                             <td>1994-06-23</td>
@@ -362,19 +353,10 @@
                                             <td>S1</td>
                                             <td>Guru</td>
                                             <td>Menikah</td>
-                                            <td>
-                                                <a href="img/ktp_asep.jpg"
-                                                style="color:#007bff; text-decoration:underline; font-weight:500;">
-                                                ktp_asep.jpg
-                                                </a>
-                                            </td>
-                                            <td>DF001</td>
-                                            <td>
-                                                <span class="btn btn-warning" style="font-size: 8px; font-weight: 700;">PENDING</span>
-                                            </td>
+                                            <td>25113201123456789001</td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
-                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal" style="background-color: #6c757d;">
                                                       <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
@@ -383,14 +365,13 @@
                                                     <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteWargaModal">
                                                     <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
-                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    <button class="btn btn-sm btn-info" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
+                                                    <iconify-icon style="font-size:20px;" icon="mingcute:pdf-fill"></iconify-icon>
                                                     </button>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>003</td>
                                             <td>3202456789123456</td>
                                             <td>Rudi Hartono</td>
                                             <td>1988-10-05</td>
@@ -400,19 +381,10 @@
                                             <td>D3</td>
                                             <td>Teknisi</td>
                                             <td>Lajang</td>
-                                            <td>
-                                                <a href="img/ktp_asep.jpg"
-                                                style="color:#007bff; text-decoration:underline; font-weight:500;">
-                                                ktp_asep.jpg
-                                                </a>
-                                            </td>
-                                            <td>DF001</td>
-                                            <td>
-                                                <span class="btn btn-warning" style="font-size: 8px; font-weight: 700;">PENDING</span>
-                                            </td>
+                                            <td>3202456789123456</td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
-                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal" style="background-color: #6c757d;">
                                                       <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
@@ -421,14 +393,13 @@
                                                     <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteWargaModal">
                                                     <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
-                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    <button class="btn btn-sm btn-info" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
+                                                    <iconify-icon style="font-size:20px;" icon="mingcute:pdf-fill"></iconify-icon>
                                                     </button>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>004</td>
                                             <td>3203123456789012</td>
                                             <td>Lina Marlina</td>
                                             <td>1992-04-17</td>
@@ -438,19 +409,10 @@
                                             <td>SMA</td>
                                             <td>Perawat</td>
                                             <td>Menikah</td>
-                                            <td>
-                                                <a href="img/ktp_asep.jpg"
-                                                style="color:#007bff; text-decoration:underline; font-weight:500;">
-                                                ktp_asep.jpg
-                                                </a>
-                                            </td>
-                                            <td>DF001</td>
-                                            <td>
-                                                <span class="btn btn-info" style="font-size: 8px; font-weight: 700;">UPDATE</span>
-                                            </td>
+                                            <td>25113203123456789012</td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
-                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal" style="background-color: #6c757d;">
                                                       <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
@@ -459,14 +421,13 @@
                                                     <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteWargaModal">
                                                     <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
-                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    <button class="btn btn-sm btn-info" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
+                                                    <iconify-icon style="font-size:20px;" icon="mingcute:pdf-fill"></iconify-icon>
                                                     </button>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>005</td>
                                             <td>3204567890123456</td>
                                             <td>Dedi Supriyadi</td>
                                             <td>1987-09-12</td>
@@ -475,20 +436,11 @@
                                             <td>Islam</td>
                                             <td>S1</td>
                                             <td>Pegawai Negeri</td>
-                                            <td>Menikah</td>
-                                            <td>
-                                                <a href="img/ktp_asep.jpg"
-                                                style="color:#007bff; text-decoration:underline; font-weight:500;">
-                                                ktp_asep.jpg
-                                                </a>
-                                            </td>
-                                            <td>DF001</td>
-                                            <td>
-                                                <span class="btn btn-warning" style="font-size: 8px; font-weight: 700;">PENDING</span>
-                                            </td>
+                                            <td>Menikah</td> 
+                                            <td>25113204567890123456</td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
-                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showWargaModal" style="background-color: #6c757d;">
                                                       <iconify-icon style="font-size: 16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
                                                     <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
@@ -497,8 +449,8 @@
                                                     <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteWargaModal">
                                                     <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
                                                     </button>
-                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
-                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    <button class="btn btn-sm btn-info" title="Verifikasi" data-toggle="modal" data-target="#verifyModal">
+                                                    <iconify-icon style="font-size:20px;" icon="mingcute:pdf-fill"></iconify-icon>
                                                     </button>
                                                 </div>
                                             </td>
@@ -615,12 +567,12 @@
                         <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">ID Warga</label>
+                            <label style="font-weight:500; color:#6c757d;">NIK</label>
                             <input type="text" class="form-control rounded-pill" value="001"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">NIK</label>
+                            <label style="font-weight:500; color:#6c757d;">NAMA</label>
                             <input type="text" class="form-control rounded-pill" value="3210998877665544"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
@@ -628,12 +580,12 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Nama</label>
+                            <label style="font-weight:500; color:#6c757d;">TANGGAL LAHIR</label>
                             <input type="text" class="form-control rounded-pill" value="Asep Sutisna"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tanggal Lahir</label>
+                            <label style="font-weight:500; color:#6c757d;">TEMPAT LAHIR</label>
                             <input type="text" class="form-control rounded-pill" value="1990-02-11"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
@@ -641,12 +593,12 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tempat Lahir</label>
+                            <label style="font-weight:500; color:#6c757d;">JENIS KELAMIN</label>
                             <input type="text" class="form-control rounded-pill" value="Bandung"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Kelamin</label>
+                            <label style="font-weight:500; color:#6c757d;">AGAMA</label>
                             <input type="text" class="form-control rounded-pill" value="Laki-laki"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
@@ -654,12 +606,12 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Agama</label>
+                            <label style="font-weight:500; color:#6c757d;">PENDIDIKAN</label>
                             <input type="text" class="form-control rounded-pill" value="Islam"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pendidikan</label>
+                            <label style="font-weight:500; color:#6c757d;">PEKERJAAN</label>
                             <input type="text" class="form-control rounded-pill" value="SMA"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
@@ -667,26 +619,13 @@
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pekerjaan</label>
+                            <label style="font-weight:500; color:#6c757d;">PERKAWINAN</label>
                             <input type="text" class="form-control rounded-pill" value="Karyawan"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Status</label>
+                            <label style="font-weight:500; color:#6c757d;">NO KK</label>
                             <input type="text" class="form-control rounded-pill" value="Menikah"
-                                style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">ID Keluarga</label>
-                            <input type="text" class="form-control rounded-pill" value="DF001"
-                                style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Status Data</label>
-                            <input type="text" class="form-control rounded-pill" value="UPDATE"
                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                             </div>
                         </div>
@@ -722,12 +661,12 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">ID Warga</label>
+                                            <label style="font-weight:500; color:#6c757d;">NIK</label>
                                             <input type="text" class="form-control rounded-pill" placeholder="ID Warga Otomatis"
                                                 style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">NIK</label>
+                                            <label style="font-weight:500; color:#6c757d;">NAMA</label>
                                             <input type="text" class="form-control rounded-pill" placeholder=" NIK"
                                                 style="font-size:0.9rem; padding:0.55rem 1rem;">
                                         </div>
@@ -735,51 +674,48 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Nama</label>
+                                            <label style="font-weight:500; color:#6c757d;">TANGGAL LAHIR</label>
                                             <input type="text" class="form-control rounded-pill" placeholder=" Nama Lengkap"
                                                 style="font-size:0.9rem; padding:0.55rem 1rem;">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Tanggal Lahir</label>
+                                            <label style="font-weight:500; color:#6c757d;">TEMPAT LAHIR</label>
                                             <input type="date" class="form-control rounded-pill"
                                                 style="font-size:0.9rem; padding:0.55rem 1rem;">
                                         </div>
                                     </div>
 
                                     <div class="form-row">
+                                        
                                         <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Tempat Lahir</label>
-                                            <input type="text" class="form-control rounded-pill" placeholder=" Tempat Lahir"
-                                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Kelamin</label>
+                                            <label style="font-weight:500; color:#6c757d;">JENIS KELAMIN</label>
                                             <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
                                                 <option>Laki-laki</option>
                                                 <option>Perempuan</option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label style="font-weight:500; color:#6c757d;">AGAMA</label>
+                                            <input type="text" class="form-control rounded-pill" placeholder=" Tempat Lahir"
+                                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                                        </div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Agama</label>
+                                            <label style="font-weight:500; color:#6c757d;">PENDIDIKAN</label>
                                             <input type="text" class="form-control rounded-pill" placeholder=" Agama"
                                                 style="font-size:0.9rem; padding:0.55rem 1rem;">
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Pendidikan</label>
+                                            <label style="font-weight:500; color:#6c757d;">PEKERJAAN</label>
                                             <input type="text" class="form-control rounded-pill" placeholder=" Pendidikan"
                                                 style="font-size:0.9rem; padding:0.55rem 1rem;">
                                         </div>
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Pekerjaan</label>
-                                            <input type="text" class="form-control rounded-pill" placeholder=" Pekerjaan"
-                                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                                        </div>
+                                        
                                         <div class="form-group col-md-6">
                                             <label style="font-weight:500; color:#6c757d;">Status</label>
                                             <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
@@ -788,6 +724,11 @@
                                                 <option>Cerai</option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label style="font-weight:500; color:#6c757d;">NO KK</label>
+                                            <input type="text" class="form-control rounded-pill" placeholder=" Pekerjaan"
+                                                style="font-size:0.9rem; padding:0.55rem 1rem;">
+                                        </div>
                                     </div>
 
                                     <div class="form-row">
@@ -795,26 +736,12 @@
                                             <label style="font-weight:500; color:#6c757d;">KTP</label>
                                             <input type="file" class="form-control rounded-pill"
                                                 style="font-size:0.9rem; padding:0.45rem 1rem;">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">ID Keluarga</label>
-                                            <input type="text" class="form-control rounded-pill" placeholder=" ID Keluarga"
-                                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label style="font-weight:500; color:#6c757d;">Status Data</label>
-                                            <input type="text" class="form-control rounded-pill" placeholder="Status"
-                                                style="font-size:0.9rem; padding:0.55rem 1rem; background-color:#e9ecef;" readonly>
-                                        </div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group col-md-12 d-flex mt-2">
-                                            <button type="submit" class="btn btn-info font-weight-bold"
-                                                style="border-radius:10px; font-size:0.85rem; padding:0.45rem 1.2rem;">
+                                            <button type="submit" class="btn btn-info font-weight-bold btn-sm"
+                                                style="border-radius:8px; font-size:0.85rem; padding:0.3rem 0.8rem;">
                                                 SIMPAN PERUBAHAN
                                             </button>
                                         </div>
