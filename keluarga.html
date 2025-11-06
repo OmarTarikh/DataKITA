@@ -9,8 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pending</title>
-
+    <title>Data Pending Keluarga</title>
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -283,51 +282,50 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="card shadow mb-4">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h6 class="m-0 font-weight-bold text-primary">VERIFIKASI DATA KELUARGA</h6>
-                            <a href="#" class="btn btn-danger d-inline-flex align-items-center justify-content-center"
+                    <div class="card shadow mb-4" style="border-radius: 12px; border:none;">
+                        <div class="card-header d-flex justify-content-between align-items-center flex-wrap"
+                        style="background-color:#fff; border:none; border-radius:12px 12px 0 0;">
+                            <h6 class="m-0 font-weight-bold text-primary">TABEL KELUARGA</h6>
+                            <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-primary d-inline-flex align-items-center justify-content-center mx-1"
+                                style="border:none; border-radius:10px; font-weight:700; font-size:13px; width:auto; height:auto;">
+                                <iconify-icon icon="ic:baseline-plus"
+                                    style="font-size:20px; margin-right:6px; vertical-align:middle;"></iconify-icon>
+                                TAMBAH DATA
+                            </a>
+                            <a href="#" class="btn btn-danger d-inline-flex align-items-center justify-content-center mx-1"
                                 style="border:none; border-radius:10px; font-weight:700; font-size:13px; width:auto; height:auto;">
                                 <iconify-icon icon="mingcute:pdf-fill"
-                                    style="font-size:18px; margin-right:6px; vertical-align:middle;"></iconify-icon>
+                                    style="font-size:20px; margin-right:6px; vertical-align:middle;"></iconify-icon>
                                 CETAK PDF
                             </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead style="background-color: #4E73DF; color: #fff;">
+                                    <thead style="background-color:#4E73DF;color:#fff;">
                                         <tr>
-                                            <th>ID DATA</th>
-                                            <th>NO KK</th>
+                                            <th>NOMOR KARTU KELUARGA</th>
                                             <th>KEPALA KELUARGA</th>
                                             <th>ALAMAT</th>
                                             <th>RT</th>
                                             <th>RW</th>
-                                            <th>DOKUMEN KK</th>
-                                            <th>TANGGAL PENGAJUAN</th>
-                                            <th>STATUS VERIFIKASI</th>
-                                            <th>ID USER</th>
+                                            <th>KELURAHAN</th>
+                                            <th>KECAMATAN</th>
                                             <th>OPSI</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>001</td>
-                                            <td>3201123456789001</td>
-                                            <td>Asep Sutisna</td>
-                                            <td>Jl. Melati No.12, Bandung</td>
+                                            <td>12121212</td>
+                                            <td>Dilan Sumedang</td>
+                                            <td>Jl. Melati No.12, Jakarta</td>
                                             <td>01</td>
-                                            <td>04</td>
-                                            <td><a href="img/kk_asep.jpg"
-                                                    style="color:#007bff; text-decoration:underline; font-weight:500;">kk_asep.jpg</a>
-                                            </td>
-                                            <td>2024-10-02</td>
-                                            <td><span class="btn btn-warning"
-                                                    style="font-size:8px; font-weight:700;">PENDING</span></td>
-                                            <td>USR001</td>
+                                            <td>03</td>
+                                            <td>Gambir</td>
+                                            <td>Gambir</td>
                                             <td class="text-center">
-                                                <div style="display:flex; justify-content:center; gap:5px;">
+                                                <div style="display:flex; justify-content:center; gap: 5px;">
                                                     <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showKeluargaModal">
                                                     <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
                                                     </button>
@@ -345,19 +343,138 @@
                                         </tr>
 
                                         <tr>
-                                            <td>002</td>
-                                            <td>3202456789123456</td>
-                                            <td>Siti Rahmawati</td>
+                                            <td>13131313</td>
+                                            <td>Jack Trenggiling</td>
                                             <td>Jl. Mawar No.5, Jakarta</td>
-                                            <td>02</td>
-                                            <td>03</td>
-                                            <td><a href="img/kk_siti.jpg"
-                                                    style="color:#007bff; text-decoration:underline; font-weight:500;">kk_siti.jpg</a>
+                                            <td>01</td>
+                                            <td>05</td>
+                                            <td>Menteng</td>
+                                            <td>Menteng</td>
+                                            <td class="text-center">
+                                                <div style="display:flex; justify-content:center; gap:5px;">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyKeluargaModal">
+                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    </button>
+                                                </div>
                                             </td>
-                                            <td>2024-09-18</td>
-                                            <td><span class="btn btn-info"
-                                                    style="font-size:8px; font-weight:700;">UPDATE</span></td>
-                                            <td>USR002</td>
+                                        </tr>
+                                        <tr>
+                                            <td>14141414</td>
+                                            <td>Jhon Kebab</td>
+                                            <td>Jl. Melati No.2, Jakarta</td>
+                                            <td>02</td>
+                                            <td>04</td>
+                                            <td>Cempaka Putih Timur</td>
+                                            <td>Cempaka Putih</td>
+                                            <td class="text-center">
+                                                <div style="display:flex; justify-content:center; gap:5px;">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyKeluargaModal">
+                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>15151515</td>
+                                            <td>Amel Promax</td>
+                                            <td>Jl. Silau No.3, Jakarta</td>
+                                            <td>06</td>
+                                            <td>07</td>
+                                            <td>Kemayoran</td>
+                                            <td>Kemayoran</td>
+                                            <td class="text-center">
+                                                <div style="display:flex; justify-content:center; gap:5px;">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyKeluargaModal">
+                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>116161616</td>
+                                            <td>Agus Stabilizer</td>
+                                            <td>Jl. Jmk No.10, Jakarta</td>
+                                            <td>12</td>
+                                            <td>10</td>
+                                            <td>Senen</td>
+                                            <td>Senen</td>
+                                            <td class="text-center">
+                                                <div style="display:flex; justify-content:center; gap:5px;">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyKeluargaModal">
+                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>171717171</td>
+                                            <td>Rehan Bukti</td>
+                                            <td>Jl. TKP No.12, Jakarta</td>
+                                            <td>01</td>
+                                            <td>01</td>
+                                            <td>Johar Baru</td>
+                                            <td>Johar Baru</td>
+                                            <td class="text-center">
+                                                <div style="display:flex; justify-content:center; gap:5px;">
+                                                    <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteKeluargaModal">
+                                                    <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success" title="Verifikasi" data-toggle="modal" data-target="#verifyKeluargaModal">
+                                                    <iconify-icon style="font-size:20px;" icon="material-symbols:check-rounded"></iconify-icon>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>119191919</td>
+                                            <td>Adit Kampasrem</td>
+                                            <td>Jl. Otomotif No.1, Jakarta</td>
+                                            <td>01</td>
+                                            <td>01</td>
+                                            <td>Kemayoran</td>
+                                            <td>Kemayoran</td>
                                             <td class="text-center">
                                                 <div style="display:flex; justify-content:center; gap:5px;">
                                                     <button class="btn btn-sm btn-info" title="Lihat" data-toggle="modal" data-target="#showKeluargaModal">
@@ -690,7 +807,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright © PBL ONE 2025</span>
                     </div>
                 </div>
             </footer>
