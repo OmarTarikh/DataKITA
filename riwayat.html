@@ -17,7 +17,7 @@
         rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/riwayat-style.css">
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.0/dist/iconify-icon.min.js"></script>
 
 </head>
@@ -282,15 +282,8 @@
                 <div class="container-fluid">
                 <div class="card shadow mb-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 font-weight-bold text-primary">TABEL WARGA</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">TABEL RIWAYAT ADMINISTRASI</h6>
                     <div class="d-flex align-items-center" style="gap:10px;">
-                        <a href="#" class="btn btn-primary d-inline-flex align-items-center justify-content-center" 
-                        data-toggle="modal" data-target="#addWargaModal"
-                        style="border:none; border-radius:10px; font-weight:700; font-size:13px;">
-                        <iconify-icon icon="ic:round-plus" style="font-size:20px; margin-right:6px;"></iconify-icon>
-                        TAMBAH DATA
-                        </a>
-
                         <a href="#" class="btn btn-danger d-inline-flex align-items-center justify-content-center"
                         style="border:none; border-radius:10px; font-weight:700; font-size:13px;">
                         <iconify-icon icon="mingcute:pdf-fill" style="font-size:18px; margin-right:6px;"></iconify-icon>
@@ -304,76 +297,159 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead style="background-color: #4E73DF; color: #fff;">
                             <tr>
+                            <th>ID Riwayat</th>
                             <th>NIK</th>
-                            <th>NAMA</th>
-                            <th>TEMPAT LAHIR</th>
-                            <th>TGL. LAHIR</th>
-                            <th>JENIS KELAMIN</th>
-                            <th>AGAMA</th>
-                            <th>PENDIDIKAN</th>
-                            <th>PEKERJAAN</th>
-                            <th>STATUS PERKAWINAN</th>
-                            <th>NO KK</th>
-                            <th>OPSI</th>
+                            <th>ID User</th>
+                            <th>No KK</th>
+                            <th>Tanggal Perubahan</th>
+                            <th>Jenis Perubahan</th>
+                            <th>Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                        <tr>
+                            <td>RW001</td>
                             <td>3210998877665544</td>
-                            <td>Asep Sutisna</td>
-                            <td>Bandung</td>
-                            <td>1990-02-11</td>
-                            <td>Laki-laki</td>
-                            <td>Islam</td>
-                            <td>SMA</td>
-                            <td>Karyawan</td>
-                            <td>Menikah</td>
+                            <td>USR102</td>
                             <td>3273050401123456</td>
-                            <td class="text-center">
-                                <div style="display:flex; justify-content:center; gap:5px;">
-                                <button class="btn btn-sm btn-secondary" title="Lihat" data-toggle="modal" data-target="#showWargaModal">
+                            <td>2024-10-23</td>
+                            <td>Pindah Alamat</td>
+                            <td class="text-center align-middle">
+                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
                                     <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                </button>
-                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
-                                </button>
-                                <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteWargaModal">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
-                                </button>
-                                <button class="btn btn-sm btn-info" title="Unduh PDF">
+                                    </button>
+
+                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
                                     <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                </button>
+                                    </button>
                                 </div>
                             </td>
-                            </tr>
-                            <tr>
-                            <td>3210456789001122</td>
-                            <td>Siti Aminah</td>
-                            <td>Jakarta</td>
-                            <td>1995-05-10</td>
-                            <td>Perempuan</td>
-                            <td>Islam</td>
-                            <td>D3</td>
-                            <td>Guru</td>
-                            <td>Belum Menikah</td>
-                            <td>3273050401123456</td>
-                            <td class="text-center">
-                                <div style="display:flex; justify-content:center; gap:5px;">
-                                <button class="btn btn-sm btn-secondary" title="Lihat" data-toggle="modal" data-target="#showWargaModal">
+                        </tr>
+
+                        <tr>
+                            <td>RW002</td>
+                            <td>3210998899001122</td>
+                            <td>USR103</td>
+                            <td>3204082209876543</td>
+                            <td>2024-11-02</td>
+                            <td>Perubahan Nama</td>
+                            <td class="text-center align-middle">
+                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
                                     <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                </button>
-                                <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editWargaModal">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:pencil"></iconify-icon>
-                                </button>
-                                <button class="btn btn-sm btn-danger" title="Hapus" data-toggle="modal" data-target="#deleteWargaModal">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:trash"></iconify-icon>
-                                </button>
-                                <button class="btn btn-sm btn-info" title="Unduh PDF">
+                                    </button>
+
+                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
                                     <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                </button>
+                                    </button>
                                 </div>
                             </td>
-                            </tr>
+                        </tr>
+
+                        <tr>
+                            <td>RW003</td>
+                            <td>3210998822113344</td>
+                            <td>USR104</td>
+                            <td>3276051003765421</td>
+                            <td>2024-12-15</td>
+                            <td>Penambahan Anggota</td>
+                            <td class="text-center align-middle">
+                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                    </button>
+
+                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>RW004</td>
+                            <td>3210998812345566</td>
+                            <td>USR105</td>
+                            <td>3209011409887766</td>
+                            <td>2025-01-05</td>
+                            <td>Perubahan Status</td>
+                            <td class="text-center align-middle">
+                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                    </button>
+
+                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>RW005</td>
+                            <td>3210998833445566</td>
+                            <td>USR106</td>
+                            <td>3273091703778888</td>
+                            <td>2025-02-11</td>
+                            <td>Pindah Kepala Keluarga</td>
+                            <td class="text-center align-middle">
+                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                    </button>
+
+                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>RW006</td>
+                            <td>3210998877009988</td>
+                            <td>USR107</td>
+                            <td>3273052209765543</td>
+                            <td>2025-03-02</td>
+                            <td>Penghapusan Data</td>
+                            <td class="text-center align-middle">
+                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                    </button>
+
+                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                    style="width: 28px; height: 28px; border-radius: 6px;">
+                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
                         </tbody>
                         </table>
                     </div>
@@ -411,145 +487,15 @@
                     }, 200);
                     });
                 </script>
-                <!-- Add Data Warga Modal -->
-                <div class="modal fade" id="addWargaModal" tabindex="-1" role="dialog" aria-labelledby="addWargaModalLabel" aria-hidden="true">
+
+                <!-- Show Riwayat Administrasi Modal -->
+                <div class="modal fade" id="showRiwayatModal" tabindex="-1" role="dialog" aria-labelledby="showRiwayatModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content" style="border-radius:18px; overflow:hidden;">
 
                     <!-- Header -->
                     <div class="modal-header d-flex justify-content-between align-items-center" style="background-color:#4E73DF; border:none;">
-                        <h5 class="modal-title text-white font-weight-bold mb-0">Tambah Data Warga</h5>
-                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
-                        <span aria-hidden="true" style="font-size:1.5rem;">&times;</span>
-                        </button>
-                    </div>
-
-                    <!-- Body -->
-                    <div class="modal-body bg-white" style="padding:1.5rem;">
-                        <form>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">NIK</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan NIK"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Nama</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Nama Lengkap"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tempat Lahir</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Tempat Lahir"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tanggal Lahir</label>
-                            <input type="date" class="form-control rounded-pill"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Jenis Kelamin</label>
-                            <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
-                                <option>Laki-laki</option>
-                                <option>Perempuan</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Agama</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Agama"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pendidikan</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Pendidikan"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pekerjaan</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Pekerjaan"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Status Perkawinan</label>
-                            <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
-                                <option>Menikah</option>
-                                <option>Belum Menikah</option>
-                                <option>Cerai</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">No KK</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan No KK"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12 d-flex mt-2">
-                            <button type="submit" class="btn btn-primary font-weight-bold"
-                                style="border-radius:10px; font-size:0.85rem; padding:0.45rem 1.2rem;">
-                                SIMPAN DATA
-                            </button>
-                            </div>
-                        </div>
-
-                        </form>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Delete Confirmation Modal Warga -->
-                <div class="modal fade" id="deleteWargaModal" tabindex="-1" role="dialog" aria-labelledby="deleteWargaModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content" style="border-radius:12px;">
-
-                    <!-- Header -->
-                    <div class="modal-header" style="background-color:#dc3545; border:none;">
-                        <h5 class="modal-title text-white font-weight-bold" id="deleteWargaModalLabel">Hapus Data Warga</h5>
-                        <button class="close text-white" type="button" data-dismiss="modal" aria-label="Close" style="opacity:1;">
-                        <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-
-                    <!-- Body -->
-                    <div class="modal-body text-gray-700" style="font-size:0.95rem;">
-                        Apakah Anda yakin ingin <strong class="text-danger">menghapus data warga ini</strong>?<br>
-                        Tindakan ini <strong>tidak dapat dibatalkan</strong>. Pastikan data yang akan dihapus sudah diverifikasi terlebih dahulu.
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                        <button class="btn btn-danger font-weight-bold" type="button">Hapus</button>
-                    </div>
-
-                    </div>
-                </div>
-                </div>
-
-                <!-- Show Data Warga Modal -->
-                <div class="modal fade" id="showWargaModal" tabindex="-1" role="dialog" aria-labelledby="showWargaModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content" style="border-radius:18px; overflow:hidden;">
-
-                    <!-- Header -->
-                    <div class="modal-header d-flex justify-content-between align-items-center" style="background-color:#4E73DF; border:none;">
-                        <h5 class="modal-title text-white font-weight-bold mb-0">Detail Data Warga</h5>
+                        <h5 class="modal-title text-white font-weight-bold mb-0">Detail Riwayat Administrasi</h5>
                         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
                         <span aria-hidden="true" style="font-size:1.5rem;">&times;</span>
                         </button>
@@ -559,179 +505,54 @@
                     <div class="modal-body bg-white" style="padding:1.5rem;">
                         <form>
                         <div class="form-row">
+                            <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">ID Riwayat</label>
+                            <input type="text" class="form-control rounded-pill" value="RW001"
+                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                            </div>
                             <div class="form-group col-md-6">
                             <label style="font-weight:500; color:#6c757d;">NIK</label>
                             <input type="text" class="form-control rounded-pill" value="3210998877665544"
                                 style="font-size:0.9rem; background-color:#e9ecef;" readonly>
                             </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Nama Lengkap</label>
-                            <input type="text" class="form-control rounded-pill" value="Asep Sutisna"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tempat Lahir</label>
-                            <input type="text" class="form-control rounded-pill" value="Bandung"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tanggal Lahir</label>
-                            <input type="text" class="form-control rounded-pill" value="1990-02-11"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Jenis Kelamin</label>
-                            <input type="text" class="form-control rounded-pill" value="Laki-laki"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Agama</label>
-                            <input type="text" class="form-control rounded-pill" value="Islam"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pendidikan</label>
-                            <input type="text" class="form-control rounded-pill" value="SMA"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pekerjaan</label>
-                            <input type="text" class="form-control rounded-pill" value="Karyawan"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Status Perkawinan</label>
-                            <input type="text" class="form-control rounded-pill" value="Menikah"
+                            <label style="font-weight:500; color:#6c757d;">ID User</label>
+                            <input type="text" class="form-control rounded-pill" value="USR102"
                                 style="font-size:0.9rem; background-color:#e9ecef;" readonly>
                             </div>
                             <div class="form-group col-md-6">
                             <label style="font-weight:500; color:#6c757d;">No KK</label>
-                            <input type="text" class="form-control rounded-pill" value="DF001"
+                            <input type="text" class="form-control rounded-pill" value="3273050401123456"
+                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Tanggal Perubahan</label>
+                            <input type="text" class="form-control rounded-pill" value="2024-10-23"
+                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                            </div>
+                            <div class="form-group col-md-6">
+                            <label style="font-weight:500; color:#6c757d;">Jenis Perubahan</label>
+                            <input type="text" class="form-control rounded-pill" value="Pindah Alamat"
                                 style="font-size:0.9rem; background-color:#e9ecef;" readonly>
                             </div>
                         </div>
 
                         <div class="form-group mt-3 text-center">
                             <label style="font-weight:500; color:#6c757d;">Foto KTP</label><br>
-                            <img src="img/ktp.jpg" alt="KTP Asep Sutisna"
-                            style="max-width:350px; border-radius:10px; border:2px solid #d1d3e2; margin-top:8px; box-shadow:0 0 6px rgba(0,0,0,0.1);">
-                        </div>
-                        </form>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- Edit Data Warga Modal -->
-                <div class="modal fade" id="editWargaModal" tabindex="-1" role="dialog" aria-labelledby="editWargaModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content" style="border-radius:18px; overflow:hidden;">
-                    <div class="modal-header d-flex justify-content-between align-items-center" style="background-color:#4E73DF; border:none;">
-                        <h5 class="modal-title text-white font-weight-bold mb-0">Edit Data Warga</h5>
-                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
-                        <span aria-hidden="true" style="font-size:1.5rem;">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-body bg-white" style="padding:1.5rem;">
-                        <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">NIK</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan NIK"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Nama Lengkap</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Nama Lengkap"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
+                            <img src="img/ktp.jpg" alt="KTP Riwayat"
+                            style="max-width:300px; border-radius:10px; border:2px solid #d1d3e2; margin-top:8px; box-shadow:0 0 6px rgba(0,0,0,0.1);">
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tempat Lahir</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Tempat Lahir"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tanggal Lahir</label>
-                            <input type="date" class="form-control rounded-pill"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Jenis Kelamin</label>
-                            <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
-                                <option>Laki-laki</option>
-                                <option>Perempuan</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Agama</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Agama"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pendidikan</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Pendidikan"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Pekerjaan</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Pekerjaan"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Status Perkawinan</label>
-                            <select class="form-control rounded-pill" style="font-size:0.9rem; padding:0.55rem 1rem;">
-                                <option>Menikah</option>
-                                <option>Belum Menikah</option>
-                                <option>Cerai</option>
-                            </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">No KK</label>
-                            <input type="text" class="form-control rounded-pill" placeholder="Masukkan Nomor KK"
-                                style="font-size:0.9rem; padding:0.55rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Upload KTP</label>
-                            <input type="file" class="form-control rounded-pill"
-                                style="font-size:0.9rem; padding:0.45rem 1rem;">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-12 d-flex mt-2">
-                            <button type="submit" class="btn btn-info font-weight-bold"
-                                style="border-radius:10px; font-size:0.85rem; padding:0.45rem 1.2rem;">
-                                SIMPAN PERUBAHAN
-                            </button>
-                            </div>
+                        <div class="form-group mt-3 text-center">
+                            <label style="font-weight:500; color:#6c757d;">Foto KK</label><br>
+                            <img src="img/kk.jpeg" alt="KK Riwayat"
+                            style="max-width:300px; border-radius:10px; border:2px solid #d1d3e2; margin-top:8px; box-shadow:0 0 6px rgba(0,0,0,0.1);">
                         </div>
                         </form>
                     </div>
