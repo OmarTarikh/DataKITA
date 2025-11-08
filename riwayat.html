@@ -280,284 +280,285 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                <div class="card shadow mb-4">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 font-weight-bold text-primary">TABEL RIWAYAT ADMINISTRASI</h6>
-                    <div class="d-flex align-items-center" style="gap:10px;">
-                        <a href="#" class="btn btn-danger d-inline-flex align-items-center justify-content-center"
-                        style="border:none; border-radius:10px; font-weight:700; font-size:13px;">
-                        <iconify-icon icon="mingcute:pdf-fill" style="font-size:18px; margin-right:6px;"></iconify-icon>
-                        CETAK PDF
-                        </a>
+                        <div class="card shadow mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold text-primary">TABEL RIWAYAT ADMINISTRASI</h6>
+                                <div class="d-flex align-items-center" style="gap:10px;">
+                                    <a href="#" class="btn btn-danger d-inline-flex align-items-center justify-content-center"
+                                    style="border:none; border-radius:10px; font-weight:700; font-size:13px;">
+                                    <iconify-icon icon="mingcute:pdf-fill" style="font-size:18px; margin-right:6px;"></iconify-icon>
+                                    CETAK PDF
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead style="background-color: #4E73DF; color: #fff;">
+                                            <tr>
+                                            <th>ID Riwayat</th>
+                                            <th>NIK</th>
+                                            <th>ID User</th>
+                                            <th>No KK</th>
+                                            <th>Tanggal Perubahan</th>
+                                            <th>Jenis Perubahan</th>
+                                            <th>Opsi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>RW001</td>
+                                                <td>3210998877665544</td>
+                                                <td>USR102</td>
+                                                <td>3273050401123456</td>
+                                                <td>2024-10-23</td>
+                                                <td>Pindah Alamat</td>
+                                                <td class="text-center align-middle">
+                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                                        <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                                        title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                        </button>
+
+                                                        <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                                        title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>RW002</td>
+                                                <td>3210998899001122</td>
+                                                <td>USR103</td>
+                                                <td>3204082209876543</td>
+                                                <td>2024-11-02</td>
+                                                <td>Perubahan Nama</td>
+                                                <td class="text-center align-middle">
+                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                                        <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                                        title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                        </button>
+
+                                                        <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                                        title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>RW003</td>
+                                                <td>3210998822113344</td>
+                                                <td>USR104</td>
+                                                <td>3276051003765421</td>
+                                                <td>2024-12-15</td>
+                                                <td>Penambahan Anggota</td>
+                                                <td class="text-center align-middle">
+                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                                        <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                                        title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                        </button>
+
+                                                        <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                                        title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>RW004</td>
+                                                <td>3210998812345566</td>
+                                                <td>USR105</td>
+                                                <td>3209011409887766</td>
+                                                <td>2025-01-05</td>
+                                                <td>Perubahan Status</td>
+                                                <td class="text-center align-middle">
+                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                                        <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                                        title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                        </button>
+
+                                                        <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                                        title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>RW005</td>
+                                                <td>3210998833445566</td>
+                                                <td>USR106</td>
+                                                <td>3273091703778888</td>
+                                                <td>2025-02-11</td>
+                                                <td>Pindah Kepala Keluarga</td>
+                                                <td class="text-center align-middle">
+                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                                        <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                                        title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                        </button>
+
+                                                        <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                                        title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>RW006</td>
+                                                <td>3210998877009988</td>
+                                                <td>USR107</td>
+                                                <td>3273052209765543</td>
+                                                <td>2025-03-02</td>
+                                                <td>Penghapusan Data</td>
+                                                <td class="text-center align-middle">
+                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                                        <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                                        title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                        </button>
+
+                                                        <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
+                                                        title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
+                                                        style="width: 28px; height: 28px; border-radius: 6px;">
+                                                        <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                        const interval = setInterval(() => {
+                            const dtLength = document.querySelector('.dataTables_length');
+                            if (dtLength && !document.querySelector('#rtButtons')) {
+                            clearInterval(interval);
 
-                    <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead style="background-color: #4E73DF; color: #fff;">
-                            <tr>
-                            <th>ID Riwayat</th>
-                            <th>NIK</th>
-                            <th>ID User</th>
-                            <th>No KK</th>
-                            <th>Tanggal Perubahan</th>
-                            <th>Jenis Perubahan</th>
-                            <th>Opsi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>RW001</td>
-                            <td>3210998877665544</td>
-                            <td>USR102</td>
-                            <td>3273050401123456</td>
-                            <td>2024-10-23</td>
-                            <td>Pindah Alamat</td>
-                            <td class="text-center align-middle">
-                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
-                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
-                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                    </button>
+                            const rtButtons = document.createElement('div');
+                            rtButtons.id = 'rtButtons';
+                            rtButtons.classList.add('btn-group');
+                            rtButtons.setAttribute('role', 'group');
+                            rtButtons.innerHTML = `
+                                <button type="button" class="btn active" data-rt="RT1">RT1</button>
+                                <button type="button" class="btn" data-rt="RT2">RT2</button>
+                                <button type="button" class="btn" data-rt="RT3">RT3</button>
+                                <button type="button" class="btn" data-rt="RT4">RT4</button>
+                            `;
 
-                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
-                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
+                            dtLength.appendChild(rtButtons);
 
-                        <tr>
-                            <td>RW002</td>
-                            <td>3210998899001122</td>
-                            <td>USR103</td>
-                            <td>3204082209876543</td>
-                            <td>2024-11-02</td>
-                            <td>Perubahan Nama</td>
-                            <td class="text-center align-middle">
-                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
-                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
-                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                    </button>
-
-                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
-                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>RW003</td>
-                            <td>3210998822113344</td>
-                            <td>USR104</td>
-                            <td>3276051003765421</td>
-                            <td>2024-12-15</td>
-                            <td>Penambahan Anggota</td>
-                            <td class="text-center align-middle">
-                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
-                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
-                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                    </button>
-
-                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
-                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>RW004</td>
-                            <td>3210998812345566</td>
-                            <td>USR105</td>
-                            <td>3209011409887766</td>
-                            <td>2025-01-05</td>
-                            <td>Perubahan Status</td>
-                            <td class="text-center align-middle">
-                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
-                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
-                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                    </button>
-
-                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
-                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>RW005</td>
-                            <td>3210998833445566</td>
-                            <td>USR106</td>
-                            <td>3273091703778888</td>
-                            <td>2025-02-11</td>
-                            <td>Pindah Kepala Keluarga</td>
-                            <td class="text-center align-middle">
-                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
-                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
-                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                    </button>
-
-                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
-                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>RW006</td>
-                            <td>3210998877009988</td>
-                            <td>USR107</td>
-                            <td>3273052209765543</td>
-                            <td>2025-03-02</td>
-                            <td>Penghapusan Data</td>
-                            <td class="text-center align-middle">
-                                <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
-                                    <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
-                                    title="Lihat" data-toggle="modal" data-target="#showRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                    </button>
-
-                                    <button class="btn btn-sm btn-info d-flex align-items-center justify-content-center" 
-                                    title="Unduh PDF" data-toggle="modal" data-target="#pdfRiwayatModal"
-                                    style="width: 28px; height: 28px; border-radius: 6px;">
-                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                        </table>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', function () {
-                    const interval = setInterval(() => {
-                        const dtLength = document.querySelector('.dataTables_length');
-                        if (dtLength && !document.querySelector('#rtButtons')) {
-                        clearInterval(interval);
-
-                        const rtButtons = document.createElement('div');
-                        rtButtons.id = 'rtButtons';
-                        rtButtons.classList.add('btn-group');
-                        rtButtons.setAttribute('role', 'group');
-                        rtButtons.innerHTML = `
-                            <button type="button" class="btn active" data-rt="RT1">RT1</button>
-                            <button type="button" class="btn" data-rt="RT2">RT2</button>
-                            <button type="button" class="btn" data-rt="RT3">RT3</button>
-                            <button type="button" class="btn" data-rt="RT4">RT4</button>
-                        `;
-
-                        dtLength.appendChild(rtButtons);
-
-                        const buttons = rtButtons.querySelectorAll('.btn');
-                        buttons.forEach(btn => {
-                            btn.addEventListener('click', () => {
-                            buttons.forEach(b => b.classList.remove('active'));
-                            btn.classList.add('active');
+                            const buttons = rtButtons.querySelectorAll('.btn');
+                            buttons.forEach(btn => {
+                                btn.addEventListener('click', () => {
+                                buttons.forEach(b => b.classList.remove('active'));
+                                btn.classList.add('active');
+                                });
                             });
+                            }
+                        }, 200);
                         });
-                        }
-                    }, 200);
-                    });
-                </script>
+                    </script>
 
-                <!-- Show Riwayat Administrasi Modal -->
-                <div class="modal fade" id="showRiwayatModal" tabindex="-1" role="dialog" aria-labelledby="showRiwayatModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content" style="border-radius:18px; overflow:hidden;">
+                    <!-- Show Riwayat Administrasi Modal -->
+                    <div class="modal fade" id="showRiwayatModal" tabindex="-1" role="dialog" aria-labelledby="showRiwayatModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content" style="border-radius:18px; overflow:hidden;">
 
-                    <!-- Header -->
-                    <div class="modal-header d-flex justify-content-between align-items-center" style="background-color:#4E73DF; border:none;">
-                        <h5 class="modal-title text-white font-weight-bold mb-0">Detail Riwayat Administrasi</h5>
-                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
-                        <span aria-hidden="true" style="font-size:1.5rem;">&times;</span>
-                        </button>
+                            <!-- Header -->
+                            <div class="modal-header d-flex justify-content-between align-items-center" style="background-color:#4E73DF; border:none;">
+                                <h5 class="modal-title text-white font-weight-bold mb-0">Detail Riwayat Administrasi</h5>
+                                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity:1;">
+                                <span aria-hidden="true" style="font-size:1.5rem;">&times;</span>
+                                </button>
+                            </div>
+
+                            <!-- Body -->
+                            <div class="modal-body bg-white" style="padding:1.5rem;">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                        <label style="font-weight:500; color:#6c757d;">ID Riwayat</label>
+                                        <input type="text" class="form-control rounded-pill" value="RW001"
+                                            style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                        <label style="font-weight:500; color:#6c757d;">NIK</label>
+                                        <input type="text" class="form-control rounded-pill" value="3210998877665544"
+                                            style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                        <label style="font-weight:500; color:#6c757d;">ID User</label>
+                                        <input type="text" class="form-control rounded-pill" value="USR102"
+                                            style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                        <label style="font-weight:500; color:#6c757d;">No KK</label>
+                                        <input type="text" class="form-control rounded-pill" value="3273050401123456"
+                                            style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                        <label style="font-weight:500; color:#6c757d;">Tanggal Perubahan</label>
+                                        <input type="text" class="form-control rounded-pill" value="2024-10-23"
+                                            style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                        <label style="font-weight:500; color:#6c757d;">Jenis Perubahan</label>
+                                        <input type="text" class="form-control rounded-pill" value="Pindah Alamat"
+                                            style="font-size:0.9rem; background-color:#e9ecef;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group mt-3 text-center col-md-6">
+                                            <label style="font-weight:500; color:#6c757d;">Foto KTP</label><br>
+                                            <img src="img/ktp.jpg" alt="KTP Riwayat"
+                                            style="max-width:300px; border-radius:10px; border:2px solid #d1d3e2; margin-top:8px; box-shadow:0 0 6px rgba(0,0,0,0.1);">
+                                        </div>
+
+                                        <div class="form-group mt-3 text-center col-md-6">
+                                            <label style="font-weight:500; color:#6c757d;">Foto KK</label><br>
+                                            <img src="img/kk.jpeg" alt="KK Riwayat"
+                                            style="max-width:300px; border-radius:10px; border:2px solid #d1d3e2; margin-top:8px; box-shadow:0 0 6px rgba(0,0,0,0.1);">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Body -->
-                    <div class="modal-body bg-white" style="padding:1.5rem;">
-                        <form>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">ID Riwayat</label>
-                            <input type="text" class="form-control rounded-pill" value="RW001"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">NIK</label>
-                            <input type="text" class="form-control rounded-pill" value="3210998877665544"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">ID User</label>
-                            <input type="text" class="form-control rounded-pill" value="USR102"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">No KK</label>
-                            <input type="text" class="form-control rounded-pill" value="3273050401123456"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Tanggal Perubahan</label>
-                            <input type="text" class="form-control rounded-pill" value="2024-10-23"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                            <div class="form-group col-md-6">
-                            <label style="font-weight:500; color:#6c757d;">Jenis Perubahan</label>
-                            <input type="text" class="form-control rounded-pill" value="Pindah Alamat"
-                                style="font-size:0.9rem; background-color:#e9ecef;" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-group mt-3 text-center">
-                            <label style="font-weight:500; color:#6c757d;">Foto KTP</label><br>
-                            <img src="img/ktp.jpg" alt="KTP Riwayat"
-                            style="max-width:300px; border-radius:10px; border:2px solid #d1d3e2; margin-top:8px; box-shadow:0 0 6px rgba(0,0,0,0.1);">
-                        </div>
-
-                        <div class="form-group mt-3 text-center">
-                            <label style="font-weight:500; color:#6c757d;">Foto KK</label><br>
-                            <img src="img/kk.jpeg" alt="KK Riwayat"
-                            style="max-width:300px; border-radius:10px; border:2px solid #d1d3e2; margin-top:8px; box-shadow:0 0 6px rgba(0,0,0,0.1);">
-                        </div>
-                        </form>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
             <!-- End of Main Content -->
