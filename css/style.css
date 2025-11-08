@@ -206,3 +206,23 @@
   border-color: #4E73DF;
 }
 
+@media (max-width: 768px) {
+  .sidebar .nav-item .nav-link {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 12px 0 !important;
+    gap: 5px !important;
+  }
+
+  .sidebar .nav-item .nav-link iconify-icon {
+    margin-bottom: 3px !important;
+    font-size: 20px !important;
+  }
+
+  .sidebar .nav-item .nav-link span {
+    font-size: 0.8rem !important;
+    display: block;
+    line-height: 1.2;
+  }
+}

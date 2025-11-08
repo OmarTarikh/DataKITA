@@ -1,0 +1,230 @@
+.sidebar.toggled .nav-link span,
+.sidebar.toggled .sidebar-brand-text {
+  display: none !important;
+}
+
+.sidebar.toggled .nav-link {
+  justify-content: center; 
+  text-align: center;
+  padding: 10px 0 !important;
+}
+
+.sidebar.toggled .nav-link iconify-icon {
+  margin: 0 auto; 
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.sidebar.toggled .nav-link:hover iconify-icon {
+  color: #fff !important;
+}
+
+.nav-item .nav-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  padding: 10px 15px !important;
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.nav-item .nav-link iconify-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.nav-item .nav-link span {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item .nav-link:hover,
+.nav-item .nav-link:hover iconify-icon {
+  color: #fff !important;
+}
+
+.nav-item.active .nav-link,
+.nav-item.active .nav-link iconify-icon {
+  color: #fff !important;
+}
+
+.btn-primary:hover {
+  background-color: #3b5bd4 !important; 
+  border-color: #3b5bd4 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268 !important; 
+  border-color: #545b62 !important;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800 !important; 
+  border-color: #d39e00 !important;
+  color: #fff !important;
+}
+
+.btn-danger:hover {
+  background-color: #c82333 !important; 
+  border-color: #bd2130 !important;
+}
+
+.btn-info:hover {
+  background-color: #138496 !important; 
+  border-color: #117a8b !important;
+}
+
+/* ====== TABLE SECTION ====== */
+#dataTable {
+  width: 100%;
+  /* Removed: table-layout: fixed and small font-size */
+  border-collapse: collapse;
+  line-height: 1.4;
+}
+
+#dataTable th,
+#dataTable td {
+  padding: 10px 12px; /* increased from 4px 6px */
+  white-space: normal !important;
+  word-wrap: break-word;
+  vertical-align: middle;
+  font-size: 0.85rem; /* slightly larger text */
+}
+
+#dataTable thead th {
+  font-weight: 700;
+  font-size: 0.85rem; /* readable size */
+  vertical-align: middle;
+}
+
+.table-responsive {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+#dataTable td.text-center div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px; /* slightly more spacing */
+  max-width: none;
+}
+
+#dataTable .btn-sm {
+  padding: 5px 7px;
+  font-size: 0.75rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dataTable .badge {
+  font-size: 0.7rem;
+  padding: 4px 6px;
+}
+
+.card-body {
+  padding: 1rem !important;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+}
+
+/* ====== RESPONSIVE SECTION ====== */
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-responsive::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  #dataTable th,
+  #dataTable td {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  #dataTable td.text-center div {
+    flex-direction: column;
+    gap: 3px;
+  }
+}
+
+#rtButtons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0px;
+  margin-left: 25px;
+}
+
+#rtButtons .btn {
+  font-weight: 600;
+  padding: 4px 16px;
+  font-size: 0.85rem;
+  color: #5a5c69;
+  background-color: #fff;
+  border: 1px solid #d1d3e2;
+  transition: all 0.2s ease;
+}
+
+#rtButtons .btn:hover {
+  background-color: #eaecf4;
+  border-color: #b7b9cc;
+}
+
+#rtButtons .btn.active {
+  background-color: #4E73DF;
+  color: #fff;
+  border-color: #4E73DF;
+}
+
+@media (max-width: 768px) {
+  .sidebar .nav-item .nav-link {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 12px 0 !important;
+    gap: 5px !important;
+  }
+
+  .sidebar .nav-item .nav-link iconify-icon {
+    margin-bottom: 3px !important;
+    font-size: 20px !important;
+  }
+
+  .sidebar .nav-item .nav-link span {
+    font-size: 0.8rem !important;
+    display: block;
+    line-height: 1.2;
+  }
+}
