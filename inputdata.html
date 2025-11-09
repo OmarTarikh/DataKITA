@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Halaman Input Data</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@3.0.0/dist/iconify-icon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+</head>
+
+<body style="background-color:#4E73DF; position:relative; overflow:hidden; margin:0; padding:0; min-height:100vh;">
+
+  <div style="position:absolute; top:0; right:0; width:50%; z-index:0;">
+    <svg width="810" height="689" viewBox="0 0 810 689" fill="none" xmlns="http://www.w3.org/2000/svg" 
+         style="width:100%; height:auto; transform:translate(15%,-40%) scale(1.3);">
+      <path d="M2207.89 169.815L-2.57418e-05 688.587L802.529 -853.614L2207.89 169.815Z" fill="#5A84FF"/>
+    </svg>
+  </div>
+
+  <div style="position:absolute; bottom:0; left:0; width:100%; z-index:0; line-height:0;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="width:100%; height:auto; display:block; margin-bottom:-1px;">
+        <path fill="#5A84FF" fill-opacity="1" d="M0,64L48,64C96,64,192,64,288,96C384,128,480,192,576,197.3C672,203,768,149,864,133.3C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <div style="position:relative; z-index:2;">
+
+    <div class="container-fluid text-white d-flex align-items-center">
+        <!-- Logo Image -->
+        <img src="img/Logo_DataKITA(3).png" 
+            alt="DataKITA Logo" 
+            style="width: 130px; height: auto; flex-shrink: 0;">
+
+        <!-- Heading Text -->
+        <h4 class="mb-0" style="font-weight: 800; line-height:1.6; letter-spacing:1px;">
+            UNTUK MENGAKSES APLIKASI INPUT DATA ANDA UNTUK<br>
+            MEMASTIKAN BAHWA ANDA ADALAH WARGA KAMI.
+        </h4>
+    </div>
+
+    <div style="padding: 0rem 7rem;">
+
+        <!-- Form Fields -->
+        <form style="color: white;">
+            <div class="row">
+
+                <!-- Left Column -->
+                <div class="col-md-6" style="padding-right: 7rem;">
+
+                    <!-- Foto KK -->
+                    <div class="form-group mb-3">
+                        <label class="font-weight-bold">Foto Kartu Keluarga</label>
+                        <div class="d-flex align-items-center" 
+                            style="background-color: #fff; border-radius: 50px; height: 55px; padding: 0 15px;">
+                            <input type="file" 
+                                class="form-control border-0" 
+                                style="font-size: 0.9rem; background: transparent; height: auto; line-height: normal;">
+                        </div>
+                    </div>
+
+                    <!-- Nomor KK -->
+                    <div class="form-group mb-3">
+                    <label class="font-weight-bold">Nomor Kartu Keluarga</label>
+                    <div class="d-flex align-items-center" 
+                        style="background-color:#fff; border-radius:50px; height:55px; padding:0 18px; box-shadow:inset 0 0 0 1px #d1d3e2;">
+                        <input type="text" class="form-control border-0" placeholder="No Kartu Keluarga..." 
+                            style="font-size:0.9rem; background:transparent;">
+                    </div>
+                    </div>
+
+                    <!-- Kepala Keluarga -->
+                    <div class="form-group mb-3">
+                    <label class="font-weight-bold">Kepala Keluarga</label>
+                    <div class="d-flex align-items-center" 
+                        style="background-color:#fff; border-radius:50px; height:55px; padding:0 18px; box-shadow:inset 0 0 0 1px #d1d3e2;">
+                        <input type="text" class="form-control border-0" placeholder="Nama Kepala Keluarga..." 
+                            style="font-size:0.9rem; background:transparent;">
+                    </div>
+                    </div>
+
+                    <!-- Alamat -->
+                    <div class="form-group mb-3">
+                    <label class="font-weight-bold">Alamat</label>
+                    <div class="d-flex align-items-center" 
+                        style="background-color:#fff; border-radius:50px; height:55px; padding:0 18px; box-shadow:inset 0 0 0 1px #d1d3e2;">
+                        <input type="text" class="form-control border-0" placeholder="Alamat Anda..." 
+                            style="font-size:0.9rem; background:transparent;">
+                    </div>
+                    </div>
+
+                    <!-- RT + RW -->
+                    <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-bold">RT</label>
+                        <div class="d-flex align-items-center" 
+                            style="background-color:#fff; border-radius:50px; height:55px; padding:0 18px; box-shadow:inset 0 0 0 1px #d1d3e2;">
+                        <input type="text" class="form-control border-0" placeholder="RT Alamat..." 
+                                style="font-size:0.9rem; background:transparent;">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="font-weight-bold">RW</label>
+                        <div class="d-flex align-items-center" 
+                            style="background-color:#fff; border-radius:50px; height:55px; padding:0 18px; box-shadow:inset 0 0 0 1px #d1d3e2;">
+                        <input type="text" class="form-control border-0" placeholder="RW Alamat..." 
+                                style="font-size:0.9rem; background:transparent;">
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-md-6" style="padding-right: 9rem;">
+
+                    <!-- NIK -->
+                    <div class="form-group mb-4" style="position: relative;">
+                    <label class="font-weight-bold">NIK</label>
+                    
+                    <div style="position: relative;">
+                        <input type="text" class="form-control"
+                        placeholder="NIK Anda..."
+                        style="border-radius:50px; font-size:0.9rem; height: 55px; padding:0.8rem 8rem 0.8rem 1.2rem; border:1px solid #d1d3e2;">
+                        <button type="button" class="btn btn-info font-weight-bold"
+                        data-toggle="modal" data-target="#addWargaModal"
+                        style="position:absolute; top:50%; right:20px; transform:translateY(-50%);
+                                border-radius:10px; font-size:0.8rem; height: 30px; padding:0.3rem 1rem; line-height:1;">
+                        + DATA WARGA
+                        </button>
+                    </div>
+                    </div>
+
+                    <!-- NIK -->
+                    <div class="form-group mb-4" style="position: relative;">
+                    <label class="font-weight-bold">NIK</label>
+                    
+                    <div style="position: relative;">
+                        <input type="text" class="form-control"
+                        placeholder="NIK Anda..."
+                        style="border-radius:50px; font-size:0.9rem; height: 55px; padding:0.8rem 8rem 0.8rem 1.2rem; border:1px solid #d1d3e2;">
+                        <button type="button" class="btn btn-info font-weight-bold"
+                        data-toggle="modal" data-target="#addWargaModal"
+                        style="position:absolute; top:50%; right:20px; transform:translateY(-50%);
+                                border-radius:10px; font-size:0.8rem; height: 30px; padding:0.3rem 1rem; line-height:1;">
+                        + DATA WARGA
+                        </button>
+                    </div>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <a href="#" style="color: white; font-weight: 600; text-decoration: none; font-size: 0.9rem;">Tambah Anggota keluarga +</a>
+                    </div>
+
+                    <!-- Bottom Buttons -->
+                    <div class="mt-1">
+                        <button type="reset" class="btn btn-danger font-weight-bold mr-2" style="border-radius: 10px; font-size: 0.9rem; padding: 0.5rem 1.2rem;">KOSONGKAN</button>
+                        <a href="tungguverifikasi.html" class="btn btn-success font-weight-bold" 
+                        style="border-radius: 10px; font-size: 0.9rem; padding: 0.5rem 1.2rem;">
+                        KIRIM DATA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+  </div>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/sb-admin-2.min.js"></script>
+
+</body>
+                    <!-- Modal Tambah Data Warga -->
+                    <div class="modal fade" id="addWargaModal" tabindex="-1" role="dialog" aria-labelledby="addWargaModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content" style="border-radius: 18px; overflow: hidden;">
+
+                        <!-- Header -->
+                        <div class="modal-header" style="background-color: #4E73DF; border: none;">
+                            <h5 class="modal-title text-white font-weight-bold">Tambah Data Warga</h5>
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" style="opacity: 1;">
+                            <span aria-hidden="true" style="font-size: 1.6rem;">&times;</span>
+                            </button>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="modal-body bg-white" style="padding: 1.5rem;">
+                            <form>
+
+                            <!-- Row 1 -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Nama Lengkap</label>
+                                <input type="text" class="form-control rounded-pill" placeholder="Masukkan Nama Lengkap"
+                                    style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Pendidikan</label>
+                                <select class="form-control rounded-pill" style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                    <option value="">Pilih Pendidikan</option>
+                                    <option>SD</option>
+                                    <option>SMP</option>
+                                    <option>SMA</option>
+                                    <option>D3</option>
+                                    <option>S1</option>
+                                    <option>S2</option>
+                                    <option>S3</option>
+                                </select>
+                                </div>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Tempat Lahir</label>
+                                <input type="text" class="form-control rounded-pill" placeholder="Masukkan Tempat Lahir"
+                                    style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Pekerjaan</label>
+                                <input type="text" class="form-control rounded-pill" placeholder="Masukkan Pekerjaan"
+                                    style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                </div>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Tanggal Lahir</label>
+                                <input type="date" class="form-control rounded-pill"
+                                    style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Status Perkawinan</label>
+                                <select class="form-control rounded-pill" style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                    <option value="">Pilih Status</option>
+                                    <option>Belum Menikah</option>
+                                    <option>Menikah</option>
+                                    <option>Cerai</option>
+                                </select>
+                                </div>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Kelamin</label>
+                                <select class="form-control rounded-pill" style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option>Laki-laki</option>
+                                    <option>Perempuan</option>
+                                </select>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Foto KTP</label>
+                                <input type="file" class="form-control-file mt-1" style="font-size: 0.9rem;">
+                                <small class="text-muted" style="font-size: 0.75rem;">Kosongkan jika tidak punya</small>
+                                </div>
+                            </div>
+
+                            <!-- Row 5 -->
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                <label style="font-weight: 500; color: #6c757d;">Agama</label>
+                                <select class="form-control rounded-pill" style="font-size: 0.9rem; padding: 0.55rem 1rem;">
+                                    <option value="">Pilih Agama</option>
+                                    <option>Islam</option>
+                                    <option>Kristen</option>
+                                    <option>Katolik</option>
+                                    <option>Hindu</option>
+                                    <option>Buddha</option>
+                                    <option>Konghucu</option>
+                                </select>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="form-row mt-3">
+                                <div class="form-group col-md-12 d-flex justify-content-end">
+                                <button type="reset" class="btn btn-danger font-weight-bold mr-2"
+                                    style="border-radius: 10px; font-size: 0.9rem; padding: 0.5rem 1.2rem;">KOSONGKAN</button>
+                                <button type="submit" class="btn btn-info font-weight-bold"
+                                    style="border-radius: 10px; font-size: 0.9rem; padding: 0.5rem 1.2rem;">SIMPAN DATA</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+
+                        </div>
+                    </div>
+                    </div>
+
+
+</html>
