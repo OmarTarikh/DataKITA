@@ -12,20 +12,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // ===== PASSWORD CHECK (OPTION A) =====
     if (!$user) {
         $error = "Email atau password salah";
     } else {
         $dbPassword = $user['Password'];
         $loginOk = false;
 
-        // If password is hashed (bcrypt starts with $2y$)
+        // HASHED PASSWORD
         if (str_starts_with($dbPassword, '$2y$')) {
             if (password_verify($password, $dbPassword)) {
                 $loginOk = true;
             }
         } 
-        // If password is plain text
+        // PLAIN TEXT PASSWORD
         else {
             if ($password === $dbPassword) {
                 $loginOk = true;
@@ -35,33 +34,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!$loginOk) {
             $error = "Email atau password salah";
         } else {
+
             // ===== LOGIN SUCCESS =====
             $_SESSION['user_id'] = $user['Id_user'];
             $_SESSION['role']    = $user['Role'];
 
-            // ADMIN
+            // ===== ADMIN =====
             if ($user['Role'] === 'admin') {
                 header("Location: index.php");
                 exit;
             }
 
-            // USER
-            $cek = $koneksi->prepare("SELECT status FROM Keluarga WHERE Id_user = ?");
-            $cek->execute([$user['Id_user']]);
-            $data = $cek->fetch(PDO::FETCH_ASSOC);
+// ===== USER FLOW =====
 
-            if (!$data) {
-                header("Location: inputdata.html");
-            } elseif ($data['status'] === 'pending') {
-                header("Location: tungguverifikasi.html");
-            } else {
-                header("Location: indexwarga.html");
-            }
-            exit;
+// 1️⃣ CEK APAKAH USER SUDAH PUNYA DATA WARGA
+$cekWargaUser = $koneksi->prepare("
+    SELECT COUNT(*) AS total_warga
+    FROM Warga
+    WHERE Id_user = ?
+");
+$cekWargaUser->execute([$user['Id_user']]);
+$wargaUser = $cekWargaUser->fetch(PDO::FETCH_ASSOC);
+
+// ✅ JIKA SUDAH ADA WARGA → LANGSUNG MASUK
+if ($wargaUser['total_warga'] > 0) {
+    header("Location: indexwarga.php");
+    exit;
+}
+
+// 2️⃣ CEK KELUARGA (KALAU BELUM ADA WARGA)
+$cekKeluarga = $koneksi->prepare("
+    SELECT No_kk, status
+    FROM Keluarga
+    WHERE Id_user = ?
+    LIMIT 1
+");
+$cekKeluarga->execute([$user['Id_user']]);
+$keluarga = $cekKeluarga->fetch(PDO::FETCH_ASSOC);
+
+// ❌ BELUM ADA DATA SAMA SEKALI
+if (!$keluarga) {
+    header("Location: inputdata.php");
+    exit;
+}
+
+// 3️⃣ ADA KELUARGA TAPI BELUM ADA WARGA
+header("Location: tungguverifikasi.php");
+exit;
         }
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,12 +128,6 @@ placeholder="Alamat Email..." required>
 <div class="form-group">
 <input type="password" name="password" class="form-control form-control-user"
 placeholder="Kata Sandi..." required>
-</div>
-<div class="form-group">
-<div class="custom-control custom-checkbox small">
-<input type="checkbox" class="custom-control-input" id="customCheck">
-<label class="custom-control-label" for="customCheck">Remember Me</label>
-</div>
 </div>
 <button type="submit" class="btn btn-primary btn-user btn-block">
 Login

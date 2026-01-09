@@ -25,25 +25,71 @@ $fotoProfil = $user['Foto_profil'] ?: 'default.png';
 
 /* ================= DATA WARGA ================= */
 $wargaStmt = $koneksi->query("
-    SELECT 
-        w.NIK,
-        w.Nama,
-        w.Tempat_lahir,
-        w.Tanggal_lahir,
-        w.Jenis_kelamin,
-        w.Agama,
-        w.Pendidikan,
-        w.Pekerjaan,
-        w.Status_perkawinan,
-        w.No_kk,
-        w.Dokumen_ktp,
-        k.RT,
-        k.RW
-    FROM Warga w
-    LEFT JOIN Keluarga k ON k.No_kk = w.No_kk
-    ORDER BY w.Nama ASC
+SELECT 
+    w.NIK,
+    w.Nama,
+    w.Tempat_lahir,
+    w.Tanggal_lahir,
+    w.Jenis_kelamin,
+    w.Agama,
+    w.Pendidikan,
+    w.Pekerjaan,
+    w.Status_perkawinan,
+    w.No_kk,
+    w.Dokumen_ktp,
+    w.status,
+    k.RT,
+    k.RW
+FROM Warga w
+LEFT JOIN Keluarga k ON k.No_kk = w.No_kk
+ORDER BY w.Nama ASC
 ");
 $dataWarga = $wargaStmt->fetchAll(PDO::FETCH_ASSOC);
+
+/* ======================================================
+   UPDATE STATUS WARGA + RIWAYAT (DISAMAKAN DENGAN KELUARGA)
+====================================================== */
+if (isset($_POST['update_status_warga'], $_POST['nik'], $_POST['status'])) {
+
+    $nik    = $_POST['nik'];
+    $status = $_POST['status'];
+
+    $koneksi->beginTransaction();
+
+    try {
+        /* UPDATE STATUS WARGA */
+        $stmt = $koneksi->prepare("
+            UPDATE Warga 
+            SET status = ?
+            WHERE NIK = ?
+        ");
+        $stmt->execute([$status, $nik]);
+
+        /* RIWAYAT ADMINISTRASI */
+        $keterangan = "Status warga diubah menjadi " . $status;
+
+        $riwayat = $koneksi->prepare("
+            INSERT INTO riwayat_administrasi
+            (jenis_data, id_data, aksi, keterangan, dilakukan_oleh)
+            VALUES ('warga', ?, 'verifikasi', ?, ?)
+        ");
+        $riwayat->execute([
+            $nik,
+            $keterangan,
+            $user_id
+        ]);
+
+        $koneksi->commit();
+
+    } catch (Exception $e) {
+        $koneksi->rollBack();
+        die("Gagal update status warga");
+    }
+
+    header("Location: warga.php");
+    exit;
+}
+
 
 /* ================= TAMBAH WARGA ================= */
 if (isset($_POST['tambah_warga'])) {
@@ -219,6 +265,12 @@ if (isset($_POST['update_warga'])) {
                 <iconify-icon icon="material-symbols:dashboard"></iconify-icon>
                 <span>Dashboard</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboardwarga.php">
+                <iconify-icon icon="ep:list"></iconify-icon>
+                <span>Dashboard Warga</span></a>
+            </li>
+
 
             <hr class="sidebar-divider">
 
@@ -236,12 +288,32 @@ if (isset($_POST['update_warga'])) {
                 </div>
             </li>
 
+
+
             <li class="nav-item">
                 <a class="nav-link" href="riwayat.php">
                     <iconify-icon icon="material-symbols:history"></iconify-icon>
                     <span>Riwayat</span>
                 </a>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <iconify-icon icon="lucide:folder-sync"></iconify-icon>
+                    <span>Pengajuan Perubahan</span></a>
+                </a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="pendingedit.php">Edit</a>
+                        <a class="collapse-item" href="pendinghapus.php">Hapus</a>
+                    </div>
+                </div>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -483,8 +555,8 @@ if (isset($_POST['update_warga'])) {
                                             <th>PENDIDIKAN</th>
                                             <th>PEKERJAAN</th>
                                             <th>STATUS PERKAWINAN</th>
-                                            <th>DOKUMEN KTP</th>
-                                            <th>NO KK</th>
+                                            <th style="display:none;">NO KK</th>
+                                            <th>STATUS</th>
                                             <th>OPSI</th>
                                         </tr>
                                     </thead>
@@ -503,18 +575,57 @@ if (isset($_POST['update_warga'])) {
                                                     <td><?= htmlspecialchars($w['Pendidikan']) ?></td>
                                                     <td><?= htmlspecialchars($w['Pekerjaan']) ?></td>
                                                     <td><?= htmlspecialchars($w['Status_perkawinan']) ?></td>
-                                                    <!-- ===== DOKUMEN KTP ===== -->
-                                                    <td class="text-center">
-                                                        <?php if (!empty($w['Dokumen_ktp']) && file_exists('img/ktp/'.$w['Dokumen_ktp'])): ?>
-                                                            <a href="img/ktp/<?= $w['Dokumen_ktp'] ?>" target="_blank">
-                                                                <img src="img/ktp/<?= $w['Dokumen_ktp'] ?>"
-                                                                    style="width:35px;height:45px;object-fit:cover;border-radius:4px;">
+                                                    <td style="display:none;"><?= htmlspecialchars($w['No_kk']) ?></td>
+
+                                                    <td>
+                                                        <form method="POST">
+                                                            <input type="hidden" name="update_status_warga" value="1">
+                                                            <input type="hidden" name="nik" value="<?= $w['NIK'] ?>">
+                                                            <input type="hidden" name="status" id="status<?= $w['NIK'] ?>">
+
+                                                            <a class="btn btn-sm nav-link dropdown-toggle 
+                                                                <?= $w['status'] === 'terverifikasi'
+                                                                    ? 'btn-success'
+                                                                    : 'btn-warning' ?>"
+                                                                id="statusDropdown<?= $w['NIK'] ?>" 
+                                                                href="#"
+                                                                role="button"
+                                                                data-toggle="dropdown"
+                                                                aria-haspopup="true"
+                                                                aria-expanded="false"
+                                                                style="min-width:80px; font-weight:600;">
+                                                                <?= ucfirst($w['status']) ?>
                                                             </a>
-                                                        <?php else: ?>
-                                                            <span class="badge badge-secondary">Tidak ada</span>
-                                                        <?php endif; ?>
+
+                                                            <div class="dropdown-menu dropdown-menu-right animated--fade-in">
+
+                                                                <a href="#"
+                                                                class="dropdown-item text-warning font-weight-bold"
+                                                                onclick="
+                                                                        document.getElementById('status<?= $w['NIK'] ?>').value='pending';
+                                                                        this.closest('form').submit();
+                                                                ">
+                                                                    <span class="badge badge-warning">&nbsp;</span>
+                                                                    Pending
+                                                                </a>
+
+                                                                <div class="dropdown-divider"></div>
+
+                                                                <a href="#"
+                                                                class="dropdown-item text-success font-weight-bold"
+                                                                onclick="
+                                                                        document.getElementById('status<?= $w['NIK'] ?>').value='terverifikasi';
+                                                                        this.closest('form').submit();
+                                                                ">
+                                                                    <span class="badge badge-success">&nbsp;</span>
+                                                                    Terverifikasi
+                                                                </a>
+
+                                                            </div>
+                                                        </form>
                                                     </td>
-                                                    <td><?= htmlspecialchars($w['No_kk']) ?></td>
+
+
                                                     <td class="text-center">
                                                         <div style="display:flex; justify-content:center; gap:5px;">
                                                             <button class="btn btn-sm btn-secondary"
@@ -621,6 +732,8 @@ if (isset($_POST['update_warga'])) {
                                                     <div class="form-group col-md-6">
                                                     <label>Pendidikan</label>
                                                     <select name="pendidikan" class="form-control rounded-pill">
+                                                        <option value="BELUM_ADA">BELUM ADA</option>
+                                                        <option value="TK">TK</option>
                                                         <option value="SD">SD</option>
                                                         <option value="SMP">SMP</option>
                                                         <option value="SMA">SMA</option>
@@ -1160,7 +1273,7 @@ if (isset($_POST['update_warga'])) {
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="logout.php">Logout</a>
                 </div>
             </div>
         </div>

@@ -126,6 +126,12 @@ while ($row = $rtQuery->fetch(PDO::FETCH_ASSOC)) {
                 <iconify-icon icon="material-symbols:dashboard"></iconify-icon>
                 <span>Dashboard</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboardwarga.php">
+                <iconify-icon icon="ep:list"></iconify-icon>
+                <span>Dashboard Warga</span></a>
+            </li>
+
 
             <hr class="sidebar-divider">
 
@@ -143,6 +149,8 @@ while ($row = $rtQuery->fetch(PDO::FETCH_ASSOC)) {
                 </div>
             </li>
 
+
+
             <li class="nav-item">
                 <a class="nav-link" href="riwayat.php">
                     <iconify-icon icon="material-symbols:history"></iconify-icon>
@@ -150,7 +158,26 @@ while ($row = $rtQuery->fetch(PDO::FETCH_ASSOC)) {
                 </a>
             </li>
 
-            <hr class="sidebar-divider">
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <iconify-icon icon="lucide:folder-sync"></iconify-icon>
+                    <span>Pengajuan Perubahan</span></a>
+                </a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="pendingedit.php">Edit</a>
+                        <a class="collapse-item" href="pendinghapus.php">Hapus</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

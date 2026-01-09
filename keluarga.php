@@ -64,8 +64,46 @@ if (
     !isset($_POST['update_keluarga']) &&
     !isset($_POST['tambah_keluarga'])
 ) {
-    $stmt = $koneksi->prepare("UPDATE Keluarga SET status = ? WHERE No_kk = ?");
+$koneksi->beginTransaction();
+
+try {
+    /* UPDATE STATUS KELUARGA */
+    $stmt = $koneksi->prepare("
+        UPDATE Keluarga 
+        SET status = ? 
+        WHERE No_kk = ?
+    ");
     $stmt->execute([$_POST['status'], $_POST['no_kk']]);
+
+    $stmt2 = $koneksi->prepare("
+        UPDATE Warga 
+        SET status = ? 
+        WHERE No_kk = ?
+    ");
+    $stmt2->execute([$_POST['status'], $_POST['no_kk']]);
+
+    /* RIWAYAT */
+    $ket = "Status keluarga dan seluruh anggota diubah menjadi ".$_POST['status'];
+    $riwayat = $koneksi->prepare("
+        INSERT INTO riwayat_administrasi
+        (jenis_data, id_data, aksi, keterangan, dilakukan_oleh)
+        VALUES ('keluarga', ?, 'verifikasi', ?, ?)
+    ");
+    $riwayat->execute([
+        $_POST['no_kk'],
+        $ket,
+        $user_id
+    ]);
+
+    $koneksi->commit();
+
+} catch (Exception $e) {
+    $koneksi->rollBack();
+    die("Gagal update status keluarga & warga");
+}
+
+header("Location: keluarga.php");
+exit;
 
     /* ===== RIWAYAT ===== */
     $ket = "Status keluarga diubah menjadi ".$_POST['status'];
@@ -135,51 +173,100 @@ if (isset($_POST['update_keluarga'])) {
 }
 
 /* ======================================================
-   TAMBAH DATA KELUARGA + RIWAYAT
+   TAMBAH DATA KELUARGA + WARGA (KEPALA) + RIWAYAT
 ====================================================== */
 if (isset($_POST['tambah_keluarga'])) {
 
-    $no_kk = $_POST['no_kk'];
-    $kepala = $_POST['kepala_keluarga'];
-    $alamat = $_POST['alamat'];
-    $rt = $_POST['rt'];
-    $rw = $_POST['rw'];
-    $kelurahan = $_POST['kelurahan'];
-    $kecamatan = $_POST['kecamatan'];
-    $id_user = $_POST['id_user'];
-    $status = $_POST['status'];
+    $koneksi->beginTransaction();
 
-    if (!is_dir('img/kk')) mkdir('img/kk', 0755, true);
+    try {
+        /* ================= DATA KELUARGA ================= */
+        $no_kk      = $_POST['no_kk'];
+        $kepala     = $_POST['kepala_keluarga'];
+        $alamat     = $_POST['alamat'];
+        $rt         = $_POST['rt'];
+        $rw         = $_POST['rw'];
+        $kelurahan  = $_POST['kelurahan'];
+        $kecamatan  = $_POST['kecamatan'];
+        $id_user    = $_POST['id_user'];
+        $status     = $_POST['status'];
 
-    $dokumen_kk = null;
-    if (!empty($_FILES['dokumen_kk']['name'])) {
-        $ext = pathinfo($_FILES['dokumen_kk']['name'], PATHINFO_EXTENSION);
-        $dokumen_kk = 'kk_'.$no_kk.'_'.time().'.'.$ext;
-        move_uploaded_file($_FILES['dokumen_kk']['tmp_name'], 'img/kk/'.$dokumen_kk);
+        if (!is_dir('img/kk')) mkdir('img/kk', 0755, true);
+
+        $dokumen_kk = null;
+        if (!empty($_FILES['dokumen_kk']['name'])) {
+            $ext = pathinfo($_FILES['dokumen_kk']['name'], PATHINFO_EXTENSION);
+            $dokumen_kk = 'kk_'.$no_kk.'_'.time().'.'.$ext;
+            move_uploaded_file($_FILES['dokumen_kk']['tmp_name'], 'img/kk/'.$dokumen_kk);
+        }
+
+        /* INSERT KELUARGA */
+        $stmt = $koneksi->prepare("
+            INSERT INTO Keluarga
+            (No_kk, Kepala_keluarga, Alamat, RT, RW, Kelurahan, Kecamatan, Dokumen_kk, Id_user, status)
+            VALUES (?,?,?,?,?,?,?,?,?,?)
+        ");
+        $stmt->execute([
+            $no_kk, $kepala, $alamat, $rt, $rw,
+            $kelurahan, $kecamatan, $dokumen_kk,
+            $id_user, $status
+        ]);
+
+        /* ================= DATA WARGA (KEPALA KELUARGA) ================= */
+        if (!is_dir('img/ktp')) mkdir('img/ktp', 0755, true);
+
+        $dokumen_ktp = null;
+        if (!empty($_FILES['dokumen_ktp']['name'])) {
+            $ext = pathinfo($_FILES['dokumen_ktp']['name'], PATHINFO_EXTENSION);
+            $dokumen_ktp = 'ktp_'.$no_kk.'_'.time().'.'.$ext;
+            move_uploaded_file($_FILES['dokumen_ktp']['tmp_name'], 'img/ktp/'.$dokumen_ktp);
+        }
+
+        $stmtWarga = $koneksi->prepare("
+            INSERT INTO Warga (
+                NIK, Nama, Tempat_lahir, Tanggal_lahir,
+                Jenis_kelamin, Agama, Pendidikan, Pekerjaan,
+                Status_perkawinan, No_kk, Dokumen_ktp,
+                Id_user, status
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+        ");
+        $stmtWarga->execute([
+            $_POST['nik'],
+            $_POST['nama'],
+            $_POST['tempat_lahir'],
+            $_POST['tanggal_lahir'],
+            $_POST['jenis_kelamin'],
+            $_POST['agama'],
+            $_POST['pendidikan'],
+            $_POST['pekerjaan'],
+            $_POST['status_perkawinan'],
+            $no_kk,
+            $dokumen_ktp,
+            $id_user,
+            $status
+        ]);
+
+        /* ================= RIWAYAT ================= */
+        $riwayat = $koneksi->prepare("
+            INSERT INTO riwayat_administrasi
+            (jenis_data, id_data, aksi, keterangan, dilakukan_oleh)
+            VALUES ('keluarga', ?, 'tambah', ?, ?)
+        ");
+        $riwayat->execute([
+            $no_kk,
+            'Data keluarga dan kepala keluarga ditambahkan',
+            $user_id
+        ]);
+
+        $koneksi->commit();
+
+        header("Location: keluarga.php");
+        exit;
+
+    } catch (Exception $e) {
+        $koneksi->rollBack();
+        die("Gagal menambahkan keluarga & warga");
     }
-
-    $stmt = $koneksi->prepare("
-        INSERT INTO Keluarga
-        (No_kk, Kepala_keluarga, Alamat, RT, RW, Kelurahan, Kecamatan, Dokumen_kk, Id_user, status)
-        VALUES (?,?,?,?,?,?,?,?,?,?)
-    ");
-    $stmt->execute([
-        $no_kk,$kepala,$alamat,$rt,$rw,
-        $kelurahan,$kecamatan,$dokumen_kk,
-        $id_user,$status
-    ]);
-
-    /* ===== RIWAYAT ===== */
-    $ket = "Data keluarga baru ditambahkan";
-    $riwayat = $koneksi->prepare("
-        INSERT INTO riwayat_administrasi
-        (jenis_data, id_data, aksi, keterangan, dilakukan_oleh)
-        VALUES ('keluarga', ?, 'tambah', ?, ?)
-    ");
-    $riwayat->execute([$no_kk, $ket, $user_id]);
-
-    header("Location: keluarga.php");
-    exit;
 }
 ?>
 
@@ -231,6 +318,12 @@ if (isset($_POST['tambah_keluarga'])) {
                 <iconify-icon icon="material-symbols:dashboard"></iconify-icon>
                 <span>Dashboard</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboardwarga.php">
+                <iconify-icon icon="ep:list"></iconify-icon>
+                <span>Dashboard Warga</span></a>
+            </li>
+
 
             <hr class="sidebar-divider">
 
@@ -248,12 +341,32 @@ if (isset($_POST['tambah_keluarga'])) {
                 </div>
             </li>
 
+
+
             <li class="nav-item">
                 <a class="nav-link" href="riwayat.php">
                     <iconify-icon icon="material-symbols:history"></iconify-icon>
                     <span>Riwayat</span>
                 </a>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <iconify-icon icon="lucide:folder-sync"></iconify-icon>
+                    <span>Pengajuan Perubahan</span></a>
+                </a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="pendingedit.php">Edit</a>
+                        <a class="collapse-item" href="pendinghapus.php">Hapus</a>
+                    </div>
+                </div>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -488,7 +601,6 @@ if (isset($_POST['tambah_keluarga'])) {
                                             <th>RW</th>
                                             <th>KELURAHAN</th>
                                             <th>KECAMATAN</th>
-                                            <th>DOKUMEN KK</th>
                                             <th>ID USER</th>
                                             <th>STATUS</th>
                                             <th>OPSI</th>
@@ -505,7 +617,6 @@ if (isset($_POST['tambah_keluarga'])) {
                                                     <td><?= htmlspecialchars($k['RW']) ?></td>
                                                     <td><?= htmlspecialchars($k['Kelurahan']) ?></td>
                                                     <td><?= htmlspecialchars($k['Kecamatan']) ?></td>
-                                                    <td><?= htmlspecialchars($k['Dokumen_kk']) ?></td>
                                                     <td><?= htmlspecialchars($k['Id_user']) ?></td>
                                                     <td>
                                                         <form method="POST">
@@ -763,6 +874,8 @@ if (isset($_POST['tambah_keluarga'])) {
                                                             <div class="form-group col-md-6">
                                                                 <label>Pendidikan</label>
                                                                 <select name="pendidikan" class="form-control rounded-pill" required>
+                                                                    <option value="BELUM_ADA">BELUM ADA</option>
+                                                                    <option value="TK">TK</option>
                                                                     <option value="SD">SD</option>
                                                                     <option value="SMP">SMP</option>
                                                                     <option value="SMA">SMA</option>
@@ -1258,7 +1371,7 @@ if (isset($_POST['tambah_keluarga'])) {
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="logout.php">Logout</a>
                 </div>
             </div>
         </div>

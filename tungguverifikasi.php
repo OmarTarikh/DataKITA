@@ -50,9 +50,9 @@
                     Mohon menunggu beberapa saat hingga proses selesai.
                 </p>
 
-                <a href="indexwarga.html" class="btn btn-primary font-weight-bold"
+                <a href="logout.php" class="btn btn-primary font-weight-bold"
                         style="border-width: 5px; background-color: #5A84FF; border-radius: 30px; padding: 0.6rem 1.8rem; font-size: 1rem;">
-                    KEMBALI <span style="font-size: 1.2rem; margin-left: 6px;">›</span>
+                    LOGOUT <span style="font-size: 1.2rem; margin-left: 6px;">›</span>
                 </a>
             </div>
 

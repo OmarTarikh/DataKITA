@@ -90,6 +90,12 @@ $dataRiwayat = $riwayatStmt->fetchAll(PDO::FETCH_ASSOC);
                 <iconify-icon icon="material-symbols:dashboard"></iconify-icon>
                 <span>Dashboard</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="dashboardwarga.php">
+                <iconify-icon icon="ep:list"></iconify-icon>
+                <span>Dashboard Warga</span></a>
+            </li>
+
 
             <hr class="sidebar-divider">
 
@@ -107,12 +113,32 @@ $dataRiwayat = $riwayatStmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </li>
 
+
+
             <li class="nav-item">
                 <a class="nav-link" href="riwayat.php">
                     <iconify-icon icon="material-symbols:history"></iconify-icon>
                     <span>Riwayat</span>
                 </a>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <iconify-icon icon="lucide:folder-sync"></iconify-icon>
+                    <span>Pengajuan Perubahan</span></a>
+                </a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="pendingedit.php">Edit</a>
+                        <a class="collapse-item" href="pendinghapus.php">Hapus</a>
+                    </div>
+                </div>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -320,14 +346,14 @@ $dataRiwayat = $riwayatStmt->fetchAll(PDO::FETCH_ASSOC);
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <h6 class="m-0 font-weight-bold text-primary">TABEL RIWAYAT ADMINISTRASI</h6>
                                 <div class="d-flex align-items-center" style="gap:10px;">
-<a href="riwayat_pdf.php"
-   target="_blank"
-   class="btn btn-danger d-inline-flex align-items-center justify-content-center"
-   style="border:none; border-radius:10px; font-weight:700; font-size:13px;">
-   <iconify-icon icon="mingcute:pdf-fill"
-                 style="font-size:18px; margin-right:6px;"></iconify-icon>
-   CETAK PDF
-</a>
+                                    <a href="riwayat_pdf.php"
+                                    target="_blank"
+                                    class="btn btn-danger d-inline-flex align-items-center justify-content-center"
+                                    style="border:none; border-radius:10px; font-weight:700; font-size:13px;">
+                                    <iconify-icon icon="mingcute:pdf-fill"
+                                                    style="font-size:18px; margin-right:6px;"></iconify-icon>
+                                    CETAK PDF
+                                    </a>
                                 </div>
                             </div>
 
@@ -347,43 +373,55 @@ $dataRiwayat = $riwayatStmt->fetchAll(PDO::FETCH_ASSOC);
                                             </tr>
                                         </thead>
                                         <tbody>
-        <?php if (!empty($dataRiwayat)): ?>
-            <?php foreach ($dataRiwayat as $r): ?>
-                <tr>
-                    <td><?= $r['id'] ?></td>
-                    <td>
-                        <span class="badge badge-<?= $r['jenis_data'] === 'keluarga' ? 'primary' : 'info' ?>">
-                            <?= ucfirst($r['jenis_data']) ?>
-                        </span>
-                    </td>
-                    <td><?= htmlspecialchars($r['id_data']) ?></td>
-                    <td>
-                        <span class="badge badge-<?=
-                            $r['aksi'] === 'tambah' ? 'success' :
-                            ($r['aksi'] === 'hapus' ? 'danger' :
-                            ($r['aksi'] === 'verifikasi' ? 'warning' : 'secondary'))
-                        ?>">
-                            <?= ucfirst($r['aksi']) ?>
-                        </span>
-                    </td>
-                    <td><?= htmlspecialchars($r['keterangan']) ?></td>
-                    <td><?= htmlspecialchars($r['Nama_user'] ?? 'System') ?></td>
-                    <td><?= date('d-m-Y H:i', strtotime($r['created_at'])) ?></td>                                                <td class="text-center align-middle">
-                                                    <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
-                                                        <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
-                                                        title="Lihat" data-toggle="modal" data-target="#showRiwayatModal<?= $r['id'] ?>"
-                                                        style="width: 28px; height: 28px; border-radius: 6px;">
-                                                        <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
-                                                        </button>
+                                            <?php if (!empty($dataRiwayat)): ?>
+                                                <?php foreach ($dataRiwayat as $r): ?>
+                                                    <tr>
+                                                        <td><?= $r['id'] ?></td>
+                                                        <td>
+                                                            <?php
+                                                                $badge = 'secondary';
 
-                                                        <a href="riwayat_pdf_row.php?id=<?= $r['id'] ?>"
-                                                            class="btn btn-sm btn-info"
-                                                            title="Unduh PDF"
-                                                            target="_blank">
-                                                            <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
-                                                        </a>
-                                                    </div>
-                                                </td>
+                                                                if ($r['jenis_data'] === 'keluarga') {
+                                                                    $badge = 'primary';
+                                                                } elseif ($r['jenis_data'] === 'warga') {
+                                                                    $badge = 'info';
+                                                                } elseif ($r['jenis_data'] === 'dashboard') {
+                                                                    $badge = 'success';
+                                                                }
+                                                            ?>
+                                                            <span class="badge badge-<?= $badge ?>">
+                                                                <?= ucfirst($r['jenis_data']) ?>
+                                                            </span>
+                                                        </td>
+                                                        <td><?= htmlspecialchars($r['id_data']) ?></td>
+                                                        <td>
+                                                            <span class="badge badge-<?=
+                                                                $r['aksi'] === 'tambah' ? 'success' :
+                                                                ($r['aksi'] === 'hapus' ? 'danger' :
+                                                                ($r['aksi'] === 'verifikasi' ? 'warning' : 'secondary'))
+                                                            ?>">
+                                                                <?= ucfirst($r['aksi']) ?>
+                                                            </span>
+                                                        </td>
+                                                        <td><?= htmlspecialchars($r['keterangan']) ?></td>
+                                                        <td><?= htmlspecialchars($r['Nama_user'] ?? 'System') ?></td>
+                                                        <td><?= date('d-m-Y H:i', strtotime($r['created_at'])) ?></td>                                                
+                                                        <td class="text-center align-middle">
+                                                            <div style="display: flex; justify-content: center; align-items: center; gap: 6px; height: 100%;">
+                                                                <button class="btn btn-sm btn-secondary d-flex align-items-center justify-content-center" 
+                                                                title="Lihat" data-toggle="modal" data-target="#showRiwayatModal<?= $r['id'] ?>"
+                                                                style="width: 28px; height: 28px; border-radius: 6px;">
+                                                                <iconify-icon style="font-size:16px;" icon="mdi:eye"></iconify-icon>
+                                                                </button>
+
+                                                                <a href="riwayat_pdf_row.php?id=<?= $r['id'] ?>"
+                                                                    class="btn btn-sm btn-info"
+                                                                    title="Unduh PDF"
+                                                                    target="_blank">
+                                                                    <iconify-icon style="font-size:18px;" icon="mingcute:pdf-fill"></iconify-icon>
+                                                                </a>
+                                                            </div>
+                                                        </td>
                                             </tr>
                     <!-- Show Riwayat Administrasi Modal -->
                     <div class="modal fade" id="showRiwayatModal<?= $r['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="showRiwayatModalLabel" aria-hidden="true">
@@ -498,7 +536,7 @@ $dataRiwayat = $riwayatStmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="logout.php">Logout</a>
                 </div>
             </div>
         </div>
