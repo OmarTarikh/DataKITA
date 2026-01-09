@@ -120,8 +120,6 @@ $kegiatanStmt->execute();
 $kegiatanList = $kegiatanStmt->fetchAll(PDO::FETCH_ASSOC);
 
 /* ================= KOTAK SARAN SUBMIT ================= */
-$successSaran = false;
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_saran'])) {
 
     $isi_saran = trim($_POST['isi_saran']);
@@ -134,9 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim_saran'])) {
         ");
         $stmt->execute([$id_user, $isi_saran]);
 
-        $successSaran = true;
-
-        // 🔒 cegah resubmit
+        // 🔒 REDIRECT + FLAG
         header("Location: indexwarga.php?saran=success");
         exit;
     }
@@ -817,17 +813,17 @@ Swal.fire({
 </script>
 <?php endif; ?>
 
-    <?php if ($successSaran): ?>
-    <script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Saran Berhasil Dikirim',
-        text: 'Terima kasih atas partisipasi Anda. Saran yang Anda kirim akan segera kami tinjau dan tindak lanjuti demi lingkungan yang lebih baik.',
-        confirmButtonText: 'Baik',
-        confirmButtonColor: '#1cc88a'
-    });
-    </script>
-    <?php endif; ?>
+<?php if (isset($_GET['saran']) && $_GET['saran'] === 'success'): ?>
+<script>
+Swal.fire({
+    icon: 'success',
+    title: 'Saran Berhasil Dikirim',
+    text: 'Terima kasih atas partisipasi Anda. Saran yang Anda kirim akan segera kami tinjau dan tindak lanjuti demi lingkungan yang lebih baik.',
+    confirmButtonText: 'Baik',
+    confirmButtonColor: '#1cc88a'
+});
+</script>
+<?php endif; ?>
 
 </body>
 

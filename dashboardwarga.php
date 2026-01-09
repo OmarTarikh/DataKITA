@@ -1228,13 +1228,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['hapus_notifikasi'])) 
                 <div class="container-fluid">
                     <div class="card shadow mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h6 class="m-0 font-weight-bold text-primary">KEGIATAN MASYARAKAT</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">NOTIFIKASI WARGA</h6>
                             <div class="d-flex align-items-center" style="gap:10px;">
                                 <a href="#" class="btn btn-primary d-inline-flex align-items-center justify-content-center" 
                                     data-toggle="modal" data-target="#addNotifikasiModal"
                                     style="border:none; border-radius:10px; font-weight:700; font-size:13px;">
                                     <iconify-icon icon="ic:round-plus" style="font-size:20px; margin-right:6px;"></iconify-icon>
-                                    NOTIFIKASI WARGA
+                                    TAMBAH DATA
                                 </a>
 
                                 <a href="notifikasi_pdf.php" class="btn btn-danger d-inline-flex align-items-center justify-content-center"

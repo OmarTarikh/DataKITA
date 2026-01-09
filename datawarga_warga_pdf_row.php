@@ -11,6 +11,7 @@ require 'koneksi.php';
 require 'vendor/autoload.php';
 
 use Dompdf\Dompdf;
+use Dompdf\Options;
 
 /* VALIDASI */
 if (!isset($_GET['nik'])) {
@@ -40,14 +41,24 @@ if (!$warga) {
     die("Data warga tidak ditemukan atau bukan milik Anda.");
 }
 
-/* ================= FOTO KTP ================= */
-$fotoKtpHtml = '';
-if (!empty($warga['Dokumen_ktp']) && file_exists('img/ktp/'.$warga['Dokumen_ktp'])) {
-    $img = base64_encode(file_get_contents('img/ktp/'.$warga['Dokumen_ktp']));
-    $fotoKtpHtml = '<img src="data:image/jpeg;base64,'.$img.'" class="doc-img">';
-} else {
-    $fotoKtpHtml = '<div class="text-muted" style="font-size:11px;">Dokumen KTP belum diunggah</div>';
-}
+/* ================= FOTO KTP (TANPA GD) ================= */
+/* Placeholder visual agar layout & look tetap konsisten */
+$fotoKtpHtml = '
+<div class="doc-placeholder">
+    <div class="doc-text">
+        Foto KTP<br>
+        <span>(Tidak ditampilkan pada PDF)</span>
+    </div>
+</div>
+';
+
+/* ================= DOMPDF OPTIONS ================= */
+$options = new Options();
+$options->set('isRemoteEnabled', false);
+$options->set('isHtml5ParserEnabled', true);
+$options->set('defaultFont', 'DejaVu Sans');
+
+$dompdf = new Dompdf($options);
 
 /* ================= HTML ================= */
 $html = '
@@ -96,11 +107,29 @@ label {
     font-size: 12px;
 }
 
-.doc-img {
-    max-width: 360px;
+/* Placeholder pengganti gambar (TETAP RAPI & SERASI) */
+.doc-placeholder {
+    width: 360px;
+    height: 220px;
+    border: 2px dashed #d1d3e2;
     border-radius: 10px;
-    border: 2px solid #d1d3e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fc;
     margin-top: 10px;
+}
+
+.doc-text {
+    text-align: center;
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: 600;
+}
+
+.doc-text span {
+    font-size: 10px;
+    font-weight: 400;
 }
 
 .footer {
@@ -213,9 +242,8 @@ label {
 ';
 
 /* ================= PDF ================= */
-$pdf = new Dompdf();
-$pdf->loadHtml($html);
-$pdf->setPaper('A4', 'portrait');
-$pdf->render();
-$pdf->stream("warga_{$warga['NIK']}.pdf", ["Attachment" => false]);
+$dompdf->loadHtml($html);
+$dompdf->setPaper('A4', 'portrait');
+$dompdf->render();
+$dompdf->stream("warga_{$warga['NIK']}.pdf", ["Attachment" => false]);
 exit;
